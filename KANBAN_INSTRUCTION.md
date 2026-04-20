@@ -236,19 +236,10 @@ d) **⭐ 阻塞性計畫的優先級評估**：會阻塞別人的計畫，無論
 
 ### 8. AI 工具分配建議
 
-| AI 工具類型 | 適合任務                 | 建議階段                  |
-| ----------- | ------------------------ | ------------------------- |
-| 高階推理    | 架構設計、複雜邏輯、除錯 | Specs, Progressing (Core) |
-| 快速生成    | CRUD、單元測試、文件     | Plans, Testing, Docs      |
-
-### 8.1 模型與工具命名中立規範（強制）
-
-為避免供應商與型號快速迭代造成文件過時，所有規範與流程文件必須遵守：
-
-1. 不得寫死具體模型名稱或工具品牌名稱。
-2. 一律使用能力導向稱呼，例如：`高階推理`、`快速生成`、`AI 助手`、`通用 AI 工具`。
-3. 若需描述差異，請以「能力層級、成本、延遲、穩定性」等抽象指標描述，不使用特定品牌/型號。
-4. 既有文件若出現具體名稱，應優先改為中立稱呼，再補上能力條件。
+| AI 工具類型                      | 適合任務                 | 建議階段                  |
+| -------------------------------- | ------------------------ | ------------------------- |
+| 高階推理 (Opus/Sonnet 3.5)       | 架構設計、複雜邏輯、除錯 | Specs, Progressing (Core) |
+| 快速生成 (GPT-4o/Claude Instant) | CRUD、單元測試、文件     | Plans, Testing, Docs      |
 
 ---
 
@@ -509,19 +500,10 @@ Prioritize:
 
 ### 8. AI Tool Allocation Guidance
 
-| AI capability type | Best for                               | Recommended stage         |
-| ------------------ | -------------------------------------- | ------------------------- |
-| Advanced reasoning | architecture, complex logic, debugging | Specs, Progressing (Core) |
-| Fast generation    | CRUD, unit tests, docs                 | Plans, Testing, Docs      |
-
-### 8.1 Model/Tool Naming Neutrality (Mandatory)
-
-To avoid rapid vendor/model evolution making docs outdated, all process and rule docs must follow:
-
-1. Do not hardcode specific model or vendor names.
-2. Use capability-oriented labels only, such as `advanced reasoning`, `fast generation`, `AI assistant`, `general AI tool`.
-3. If differences must be described, use abstract indicators: capability level, cost, latency, stability.
-4. If specific names exist in old docs, replace with neutral wording first, then add capability conditions.
+| AI capability type                      | Best for                               | Recommended stage         |
+| --------------------------------------- | -------------------------------------- | ------------------------- |
+| Advanced reasoning (Opus/Sonnet 3.5)    | architecture, complex logic, debugging | Specs, Progressing (Core) |
+| Fast generation (GPT-4o/Claude Instant) | CRUD, unit tests, docs                 | Plans, Testing, Docs      |
 
 ### 9. File Transition Rules
 
@@ -777,19 +759,10 @@ Additional fields by stage:
 
 ### 8. AI ツール配分ガイド
 
-| AI 能力タイプ | 向いている作業                     | 推奨ステージ              |
-| ------------- | ---------------------------------- | ------------------------- |
-| 高度推論      | アーキ設計、複雑ロジック、デバッグ | Specs, Progressing (Core) |
-| 高速生成      | CRUD、単体テスト、文書             | Plans, Testing, Docs      |
-
-### 8.1 モデル/ツール命名中立規範（必須）
-
-ベンダー/モデル進化で文書が陳腐化するのを防ぐため、規範/運用文書は以下を厳守:
-
-1. 具体的なモデル名/ベンダー名を固定記載しない。
-2. `高度推論`、`高速生成`、`AI アシスタント`、`汎用 AI ツール` のような能力ベース表現を使う。
-3. 差異記述が必要な場合は、能力レベル、コスト、遅延、安定性など抽象指標で記述する。
-4. 既存文書に固有名がある場合は、中立語へ置換した上で能力条件を補足する。
+| AI 能力タイプ                    | 向いている作業                     | 推奨ステージ              |
+| -------------------------------- | ---------------------------------- | ------------------------- |
+| 高度推論 (Opus/Sonnet 3.5)       | アーキ設計、複雑ロジック、デバッグ | Specs, Progressing (Core) |
+| 高速生成 (GPT-4o/Claude Instant) | CRUD、単体テスト、文書             | Plans, Testing, Docs      |
 
 ### 9. ファイル遷移規則
 
