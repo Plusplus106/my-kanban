@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Archive Only"
+  short_description: "Archive specified files to 8-Archived and stop"
+  default_prompt: "Use $kanban-archive-only to archive the paths I provide, generate the summary from template, and then stop for my next instruction."

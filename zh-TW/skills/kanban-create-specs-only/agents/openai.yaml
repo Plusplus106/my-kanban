@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Create Specs Only"
+  short_description: "Create spec docs with numbered Q&A"
+  default_prompt: "Use $kanban-create-specs-only and ask me numbered questions before generating the spec files."

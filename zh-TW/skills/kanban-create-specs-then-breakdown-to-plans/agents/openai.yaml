@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Create Specs Then Breakdown To Plans"
+  short_description: "Create specs, then break down to plans"
+  default_prompt: "Use $kanban-create-specs-then-breakdown-to-plans and ask me numbered setup questions before creating the spec and plans."

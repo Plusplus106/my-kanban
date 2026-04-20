@@ -1,0 +1,43 @@
+{
+  "name": "my-kanban",
+  "version": "2.1.0",
+  "description": "AI-Collaborative Kanban Task Management System designed for multi-AI tool collaboration with parallel execution capabilities",
+  "main": "index.js",
+  "scripts": {
+    "init-project-kanban": "chmod +x scripts/init-project-kanban.sh && scripts/init-project-kanban.sh",
+    "gen-prompt": "chmod +x scripts/gen-prompt.sh && scripts/gen-prompt.sh",
+    "gen-idea-prompt": "chmod +x scripts/gen-idea-to-plan-prompt.sh && scripts/gen-idea-to-plan-prompt.sh",
+    "gen-docs-prompt": "chmod +x scripts/gen-docs-to-todo-prompt.sh && scripts/gen-docs-to-todo-prompt.sh",
+    "gen-todo-prompt": "chmod +x scripts/gen-todo-to-progressing-prompt.sh && scripts/gen-todo-to-progressing-prompt.sh",
+    "gen-testing-prompt": "chmod +x scripts/gen-progressing-to-testing-prompt.sh && scripts/gen-progressing-to-testing-prompt.sh",
+    "gen-done-prompt": "chmod +x scripts/gen-testing-to-done-prompt.sh && scripts/gen-testing-to-done-prompt.sh",
+    "gen-archived-prompt": "chmod +x scripts/gen-done-to-archived-prompt.sh && scripts/gen-done-to-archived-prompt.sh"
+  },
+  "keywords": [
+    "kanban",
+    "task-management",
+    "ai-collaboration",
+    "multi-ai",
+    "parallel-execution",
+    "codex",
+    "workflow",
+    "project-management",
+    "ai",
+    "automation",
+    "collaboration"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Plusplus106/my-kanban.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Plusplus106/my-kanban/issues"
+  },
+  "homepage": "https://github.com/Plusplus106/my-kanban#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "author": "Jack Huang",
+  "license": "MIT"
+}

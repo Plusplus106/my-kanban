@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Add And Generate Commit Message"
+  short_description: "Scoped auto-add with detailed commit text"
+  default_prompt: "Use $git-add-and-gen-commit-message to stage only in-scope files automatically and generate a detailed Conventional Commit message, without any commit or push."

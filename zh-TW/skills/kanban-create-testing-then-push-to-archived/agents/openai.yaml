@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Create Testing Then Push To Archived"
+  short_description: "Create testing docs, complete code and tests, then archive"
+  default_prompt: "Use $kanban-create-testing-then-push-to-archived to create testing docs first, then after approval complete any required production code and test code, update project docs and kanban docs, enforce the testing quality gate, and move everything through the correct template-based folder structure to done and archived."

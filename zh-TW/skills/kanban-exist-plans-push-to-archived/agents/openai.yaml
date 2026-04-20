@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Exist Plans Push To Archived"
+  short_description: "Run existing plans with code, tests, docs, and archive updates"
+  default_prompt: "Use $kanban-exist-plans-push-to-archived to continue from existing plan files, implement the required code and test code, update project docs and kanban docs, enforce the testing quality gate, and move everything through the correct template-based folder structure to archived with a final summary."

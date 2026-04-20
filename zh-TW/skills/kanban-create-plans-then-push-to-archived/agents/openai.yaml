@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Create Plans Then Push To Archived"
+  short_description: "Create plans first, then implement code, tests, docs, and archive"
+  default_prompt: "Use $kanban-create-plans-then-push-to-archived to create plan docs first, then after approval implement the required code and test code, update project docs and kanban docs, enforce the testing quality gate, and move everything through the correct template-based folder structure to archived."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Exist Testing Push To Archived"
+  short_description: "Run existing testing with code, tests, docs, and archive updates"
+  default_prompt: "Use $kanban-exist-testing-push-to-archived to continue from existing testing files, complete any required production code and test code, update project docs and kanban docs, enforce the testing quality gate, and move everything through the correct template-based folder structure to archived with a final summary."

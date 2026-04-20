@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Create Testing Only"
+  short_description: "Create testing docs with numbered Q&A"
+  default_prompt: "Use $kanban-create-testing-only and ask me numbered questions before generating testing files."

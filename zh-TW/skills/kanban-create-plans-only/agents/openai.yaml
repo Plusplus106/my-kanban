@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Create Plans Only"
+  short_description: "Create plan docs with numbered Q&A"
+  default_prompt: "Use $kanban-create-plans-only and ask me numbered questions before generating the plan files."

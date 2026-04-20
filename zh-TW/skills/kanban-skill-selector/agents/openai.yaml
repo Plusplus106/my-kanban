@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Skill Selector"
+  short_description: "Choose a kanban skill, then run its flow"
+  default_prompt: "Use $kanban-skill-selector and let me pick one skill first, then continue with that skill's Q&A flow."
