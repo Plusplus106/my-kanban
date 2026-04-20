@@ -238,8 +238,8 @@ d) **⭐ 阻塞性計畫的優先級評估**：會阻塞別人的計畫，無論
 
 | AI 工具類型                      | 適合任務                 | 建議階段                  |
 | -------------------------------- | ------------------------ | ------------------------- |
-| 高階推理 (Opus/Sonnet 3.5)       | 架構設計、複雜邏輯、除錯 | Specs, Progressing (Core) |
-| 快速生成 (GPT-4o/Claude Instant) | CRUD、單元測試、文件     | Plans, Testing, Docs      |
+| 高階推理 (Claude)                | 架構設計、複雜邏輯、除錯 | Specs, Progressing (Core) |
+| 快速生成 (GPT/Claude) | CRUD、單元測試、文件     | Plans, Testing, Docs      |
 
 ---
 
@@ -502,8 +502,8 @@ Prioritize:
 
 | AI capability type                      | Best for                               | Recommended stage         |
 | --------------------------------------- | -------------------------------------- | ------------------------- |
-| Advanced reasoning (Opus/Sonnet 3.5)    | architecture, complex logic, debugging | Specs, Progressing (Core) |
-| Fast generation (GPT-4o/Claude Instant) | CRUD, unit tests, docs                 | Plans, Testing, Docs      |
+| Advanced reasoning (Claude)             | architecture, complex logic, debugging | Specs, Progressing (Core) |
+| Fast generation (GPT/Claude)            | CRUD, unit tests, docs                 | Plans, Testing, Docs      |
 
 ### 9. File Transition Rules
 
@@ -761,8 +761,8 @@ Additional fields by stage:
 
 | AI 能力タイプ                    | 向いている作業                     | 推奨ステージ              |
 | -------------------------------- | ---------------------------------- | ------------------------- |
-| 高度推論 (Opus/Sonnet 3.5)       | アーキ設計、複雑ロジック、デバッグ | Specs, Progressing (Core) |
-| 高速生成 (GPT-4o/Claude Instant) | CRUD、単体テスト、文書             | Plans, Testing, Docs      |
+| 高度推論 (Claude)                | アーキ設計、複雑ロジック、デバッグ | Specs, Progressing (Core) |
+| 高速生成 (GPT/Claude)            | CRUD、単体テスト、文書             | Plans, Testing, Docs      |
 
 ### 9. ファイル遷移規則
 
@@ -830,3 +830,4 @@ Additional fields by stage:
 
 **Version:** 5.2 (Testing Quality Gate Aligned)
 **Last Updated:** 2026-02-20
+0
