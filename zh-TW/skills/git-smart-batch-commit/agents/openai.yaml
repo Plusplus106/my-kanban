@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Smart Batch Commit"
+  short_description: "Scan changed files, group by feature, generate per-batch commit messages, then wait for user approval before committing. Never push."
+  default_prompt: "Use $git-smart-batch-commit to scan all changed files, group them by feature as granularly as possible, generate detailed English Conventional Commit messages for each batch, then stop and wait for my confirmation before doing any git add or commit. Never push."

@@ -1,9 +1,9 @@
 ---
 name: kanban-skill-selector
 description: 高階入口 skill，先讓使用者從多個 kanban skills 中選一個，再進入該 skill 的問答流程。適用於希望先做技能層級選擇，再執行各自流程的情境。
-version: 2.0.0
-last_updated: 2026-04-09
-effective_date: 2026-04-09
+version: 2.1.0
+last_updated: 2026-05-01
+effective_date: 2026-05-01
 ---
 
 # Kanban Skill Selector
@@ -52,7 +52,8 @@ effective_date: 2026-04-09
 
 **工具**
 
-- `13. git-add-and-gen-commit-message` — 針對修改的檔案自動產生 commit message
+- `13. git-add-and-gen-commit-message` — 針對修改的檔案自動產生 commit message（支援語言參數：zh/en/jp 等，預設英文）
+- `14. git-smart-batch-commit` — 掃描所有變動檔案，依功能分組，分批產生英文 commit message，等待確認後才執行，嚴禁自動 push
 
 ## 分流規則
 

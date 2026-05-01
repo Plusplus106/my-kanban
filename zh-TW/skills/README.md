@@ -98,7 +98,14 @@
 
 - `git-add-and-gen-commit-message`
   - 觸發：`$git-add-and-gen-commit-message`
+  - 觸發（含路徑 + 語言）：`$git-add-and-gen-commit-message /path/to/folder zh`
   - 用途：針對本次修改的檔案，安全執行 `git add` 並自動產生完整 commit message。
+  - 語言參數：支援 `zh`、`en`、`jp`（或中文、英文、日文等全名），預設英文。
+
+- `git-smart-batch-commit`
+  - 觸發：`$git-smart-batch-commit`
+  - 觸發（含路徑）：`$git-smart-batch-commit /path/to/repo`
+  - 用途：掃描 repo 中所有變動檔案，依功能自動細拆分組，為每組產生詳細英文 commit message，產出後強制暫停等待使用者確認，確認後才依序執行 git add + commit。絕對嚴格禁止自動 push。
 
 ## 維護原則
 
