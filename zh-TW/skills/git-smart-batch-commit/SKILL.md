@@ -1,7 +1,7 @@
 ---
 name: git-smart-batch-commit
-description: 掃描 repo 中所有已變動的檔案，依照功能/類別自動分組，為每個分組產生詳細的英文 commit message。產出後強制暫停等待使用者確認，使用者確認指定批次後才依序執行 git add + commit，絕對嚴格禁止自動 push。
-version: 1.0.0
+description: 掃描 repo 中所有已變動的檔案，依照功能/類別自動分組，為每個分組產生詳細的 commit message（支援語言參數，預設英文）。產出後強制暫停等待使用者確認，使用者確認指定批次後才依序執行 git add + commit，絕對嚴格禁止自動 push。
+version: 1.1.0
 last_updated: 2026-05-01
 effective_date: 2026-05-01
 ---
@@ -14,12 +14,15 @@ effective_date: 2026-05-01
 
 ## 目的
 
-當同一個 repo 一次混入了多個不同功能的修改，自動將變動檔案依類別分組，為每組產生獨立、詳細的英文 commit message，並在使用者明確確認後才逐批執行 git add + commit。
+當同一個 repo 一次混入了多個不同功能的修改，自動將變動檔案依類別分組，為每組產生獨立、詳細的 commit message（語言由參數決定，預設英文），並在使用者明確確認後才逐批執行 git add + commit。
 
 ## 快速使用範例
 
 - 觸發（無參數）：`$git-smart-batch-commit`
 - 觸發（含路徑）：`$git-smart-batch-commit /path/to/repo`
+- 觸發（含路徑 + 語言）：`$git-smart-batch-commit /path/to/repo zh`
+- 觸發（全域，僅語言）：`$git-smart-batch-commit . 中文`
+- 語言切換（關鍵字方式）：若需求中包含 `中文commit`、`zh`、`tw commit`，亦可觸發語言切換（優先級低於明確參數）。
 - AI 產出分組與 commit message 後：**強制暫停，等待使用者確認**。
 - 使用者確認後輸入例如：
 
@@ -31,8 +34,26 @@ effective_date: 2026-05-01
 
 - 啟用 skill 後，立即進入「掃描 → 分組 → 產生 commit message → 強制暫停」流程。
 - 若使用者有提供路徑：僅掃描該路徑範圍內的變動；否則從 repo 根目錄掃描。
-- commit message 語言：**固定英文**，不受其他參數影響。
+- commit message 語言：可透過參數指定（例如 `zh`、`en`、`日文`），若未指定且無關鍵字則**預設英文**。
 - 分組完成並產出 commit message 後：**絕對必須停下等待使用者確認，嚴禁自動執行任何 git 操作**。
+
+## 語言參數對應表
+
+明確語言參數優先級高於關鍵字偵測，支援以下輸入形式：
+
+| 輸入值（不分大小寫） | 對應語言 | 說明 |
+|---|---|---|
+| `zh`、`zh-tw`、`tw`、`中文`、`繁體中文`、`chinese` | 繁體中文（台灣用語） | |
+| `zh-cn`、`cn`、`简体中文`、`簡體中文` | 簡體中文 | |
+| `en`、`english`、`英文`、`英語` | 英文 | 預設值 |
+| `jp`、`ja`、`japanese`、`日文`、`日語`、`日本語` | 日文 | |
+| `ko`、`korean`、`韓文`、`韓語` | 韓文 | |
+| 其他未知值 | 視為英文（預設） | 並輸出警告提示 |
+
+**語言優先級順序（由高到低）：**
+1. 明確語言參數
+2. 訊息中的關鍵字偵測（`中文commit`、`zh`、`tw commit` 等）
+3. 預設英文
 
 ## 必做步驟
 
@@ -67,7 +88,7 @@ effective_date: 2026-05-01
 
 ### 階段二：產生 commit message（自動執行）
 
-5. 針對每個批次，依照批次內檔案的實際 diff 內容，產生一段詳細且完整的英文 commit message。
+5. 針對每個批次，依照批次內檔案的實際 diff 內容，產生一段詳細且完整的 commit message（語言依上述語言參數與優先級決定）。
 
 6. commit message 格式必須遵循 Conventional Commits：
    ```
