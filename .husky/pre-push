@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# Get current branch name
+BRANCH_NAME=$(git branch --show-current)
+
+# Prevent infinite loop: check if the latest commit is the auto-generated version bump
+LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
+if [[ "$LAST_COMMIT_MSG" == *"chore(version): bump version to"* ]]; then
+  exit 0
+fi
+
+echo "🚀 Push detected. Husky is automatically bumping the minor version..."
+
+# Check for uncommitted changes. If found, stash them temporarily.
+STASH_NEEDED=0
+if ! git diff-index --quiet HEAD --; then
+  echo "📦 Uncommitted changes detected. Stashing temporarily..."
+  git stash push -m "Auto stash before version bump"
+  STASH_NEEDED=1
+fi
+
+# Use npm version to bump the minor version (e.g., 1.x.0 -> 1.(x+1).0)
+# This automatically generates a commit and a tag.
+if npm version minor -m "chore(version): bump version to %s"; then
+  echo "✅ Version bump successful!"
+  
+  # Since the commits to be pushed are determined before the pre-push hook runs,
+  # the newly created version commit won't be included in the current push.
+  # We manually initiate another push without hooks to ensure the new commit is pushed.
+  echo "📤 Pushing the new version commit to the remote..."
+  git push --no-verify origin "$BRANCH_NAME" --tags
+else
+  echo "❌ Version bump failed. Aborting push."
+  if [ $STASH_NEEDED -eq 1 ]; then
+    git stash pop
+  fi
+  exit 1
+fi
+
+# Restore stash
+if [ $STASH_NEEDED -eq 1 ]; then
+  git stash pop
+fi
+
+exit 0

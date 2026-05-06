@@ -11,7 +11,8 @@
     "gen-todo-prompt": "chmod +x scripts/gen-todo-to-progressing-prompt.sh && scripts/gen-todo-to-progressing-prompt.sh",
     "gen-testing-prompt": "chmod +x scripts/gen-progressing-to-testing-prompt.sh && scripts/gen-progressing-to-testing-prompt.sh",
     "gen-done-prompt": "chmod +x scripts/gen-testing-to-done-prompt.sh && scripts/gen-testing-to-done-prompt.sh",
-    "gen-archived-prompt": "chmod +x scripts/gen-done-to-archived-prompt.sh && scripts/gen-done-to-archived-prompt.sh"
+    "gen-archived-prompt": "chmod +x scripts/gen-done-to-archived-prompt.sh && scripts/gen-done-to-archived-prompt.sh",
+    "prepare": "husky"
   },
   "keywords": [
     "kanban",
@@ -39,5 +40,8 @@
     "npm": ">=6.0.0"
   },
   "author": "Jack Huang",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
 }
