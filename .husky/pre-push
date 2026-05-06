@@ -20,15 +20,25 @@ if ! git diff-index --quiet HEAD --; then
 fi
 
 # Use npm version to bump the minor version (e.g., 1.x.0 -> 1.(x+1).0)
-# This automatically generates a commit and a tag.
 if npm version minor -m "chore(version): bump version to %s"; then
   echo "✅ Version bump successful!"
   
-  # Since the commits to be pushed are determined before the pre-push hook runs,
-  # the newly created version commit won't be included in the current push.
-  # We manually initiate another push without hooks to ensure the new commit is pushed.
-  echo "📤 Pushing the new version commit to the remote..."
-  git push --no-verify origin "$BRANCH_NAME" --tags
+  # To avoid the Git lock error (remote rejected), we cannot push immediately inside the hook
+  # because the original push is still holding the lock and expects the old commit hash.
+  # We spawn a background process that waits for the current git push to finish, then pushes the new commit.
+  
+  # $PPID is the process ID of the original `git push` command.
+  nohup bash -c "
+    # Wait for the original git push to complete
+    while kill -0 $PPID 2>/dev/null; do 
+      sleep 1
+    done
+    # Push the new version commit and tags
+    git push --no-verify origin \"$BRANCH_NAME\" --tags
+  " > /dev/null 2>&1 &
+  
+  echo "⏳ The new version commit will be pushed automatically in the background right after this push completes."
+
 else
   echo "❌ Version bump failed. Aborting push."
   if [ $STASH_NEEDED -eq 1 ]; then
