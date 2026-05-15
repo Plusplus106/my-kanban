@@ -20,29 +20,30 @@
 
 ### 📁 資料夾組織規則
 
-⭐ **重要:** 為避免不同 plan 的任務混在一起，任務必須按照所屬 plan 組織：
+⭐ **重要:** 為避免不同 spec 的任務混在一起，任務必須按照所屬 spec 組織：
 
-1. **任務必須放在日期-plan 編號-feature 名稱資料夾中**
-   - 例如: `7-Done/2025-12-01-[plan-Xm1q2]-payment-integration/2025-12-01-[plan-Xm1q2]-2-high-[task-Az4a2]-feature-stripe-integration.md`
-2. **從 4-Testing/re-testing 移動任務時，保持相同的日期和 plan 資料夾結構**
-   - `4-Testing/2025-12-01-[plan-Xm1q2]-payment-integration/xxx.md` → `7-Done/2025-12-01-[plan-Xm1q2]-payment-integration/xxx.md`
-3. **⚠️ 資料夾命名格式:** `[YYYY-MM-DD]-[plan-xxxxx]-[feature-name]`
-   - ❌ 錯誤: `7-Done/2025-12-01-[plan-Xm1q2]/`（缺少 feature-name）
-   - ✅ 正確: `7-Done/2025-12-01-[plan-Xm1q2]-payment-integration/`
+1. **任務必須放在日期-spec 編號-feature 名稱資料夾中**
+   - 例如: `7-Done/2025-12-01-[spec-Xm1q2]-payment-integration/2025-12-01-[spec-Xm1q2]-2-high-[plan-Az4a2]-feature-stripe-integration.md`
+2. **從 4-Testing/5-Re-testing 移動任務時，保持相同的日期和 spec 資料夾結構**
+   - `4-Testing/2025-12-01-[spec-Xm1q2]-payment-integration/xxx.md` → `7-Done/2025-12-01-[spec-Xm1q2]-payment-integration/xxx.md`
+3. **⚠️ 資料夾命名格式:** `[YYYY-MM-DD]-[spec-xxxxx]-[feature-name]`
+   - ❌ 錯誤: `7-Done/2025-12-01-[spec-Xm1q2]/`（缺少 feature-name）
+   - ❌ 錯誤: `7-Done/2025-12-01-[plan-Xm1q2]-payment-integration/`（不可使用 `[plan-xxxxx]` 作為父資料夾識別）
+   - ✅ 正確: `7-Done/2025-12-01-[spec-Xm1q2]-payment-integration/`
 
 **範例結構:**
 
 ```
 7-Done/
-├── 2025-12-01-[plan-Xm1q2]-payment-integration/
-│   ├── 2025-12-01-[plan-Xm1q2]-2-high-[task-Az4a2]-feature-stripe-integration.md
-│   ├── 2025-12-01-[plan-Xm1q2]-3-mid-[task-k3B9Z]-test-payment-flow.md
-│   └── 2025-12-01-[plan-Xm1q2]-4-low-[task-A1b2C]-docs-payment-api.md
-├── 2025-12-05-[plan-Rt7w3]-user-authentication/
-│   ├── 2025-12-05-[plan-Rt7w3]-1-urgent-[task-Bc8K7]-feature-jwt-implementation.md
-│   └── 2025-12-05-[plan-Rt7w3]-2-high-[task-Pq28L]-test-auth-flow.md
+├── 2025-12-01-[spec-Xm1q2]-payment-integration/
+│   ├── 2025-12-01-[spec-Xm1q2]-2-high-[plan-Az4a2]-feature-stripe-integration.md
+│   ├── 2025-12-01-[spec-Xm1q2]-3-mid-[plan-k3B9Z]-test-payment-flow.md
+│   └── 2025-12-01-[spec-Xm1q2]-4-low-[plan-A1b2C]-docs-payment-api.md
+├── 2025-12-05-[spec-Rt7w3]-user-authentication/
+│   ├── 2025-12-05-[spec-Rt7w3]-1-urgent-[plan-Bc8K7]-feature-jwt-implementation.md
+│   └── 2025-12-05-[spec-Rt7w3]-2-high-[plan-Pq28L]-test-auth-flow.md
 ├── 2025-12-31-[no-spec]-bugfix-login/
-│   └── 2025-12-31-[no-spec]-1-urgent-[task-Bz8k3]-bug-fix-login-timeout.md
+│   └── 2025-12-31-[no-spec]-1-urgent-[plan-Bz8k3]-bug-fix-login-timeout.md
 └── .done-task-template.md
 ```
 
@@ -51,7 +52,7 @@
 對於使用 `[no-spec]` 命名格式的任務：
 
 - **無論是單一任務文件或多個任務文件，都必須放在共同父層資料夾中**
-- **檔案命名格式：** `[YYYY-MM-DD]-[no-spec]-[數字]-[優先級]-[task-xxxxx]-[類別]-描述.md`
+- **檔案命名格式：** `[YYYY-MM-DD]-[no-spec]-[數字]-[優先級]-[plan-xxxxx]-[類別]-描述.md`
 - **可以在任何階段直接建立 [no-spec] 任務**，不一定要從 1-Specs/ 開始完整流程
 - **移動時保持相同的檔案名稱與父層資料夾結構**
 
