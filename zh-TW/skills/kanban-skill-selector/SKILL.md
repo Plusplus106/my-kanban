@@ -1,10 +1,16 @@
 ---
 name: kanban-skill-selector
 description: 高階入口 skill，先讓使用者從多個 kanban skills 中選一個，再進入該 skill 的問答流程。適用於希望先做技能層級選擇，再執行各自流程的情境。
-version: 2.1.0
-last_updated: 2026-05-01
-effective_date: 2026-05-01
+version: 2.2.0
+last_updated: 2026-05-16
+effective_date: 2026-05-16
 ---
+
+## 🔴 子 Skill 鐵律繼承宣告
+
+> **本 selector skill 僅負責導流。一旦使用者選定子 skill 後，**子 skill 內所有「🔴 鐵律」**（包含但不限於工作主從鐵律、階段格式鐵律、階段轉換鐵律、歸檔前強制輸出檢查清單 Step A-G、Step C-2 實作證據檢查、Step G 歸檔後最終回頭驗證）都必須完整遵守，selector 不得以「已選擇」為由跳過或簡化任何子 skill 規則。**
+>
+> **若子 skill 推進到 `8-Archived/`，必須在對話中完整輸出 7 步可視義務（A 到 G），缺一視為違規。**
 
 # Kanban Skill Selector
 

@@ -1,9 +1,9 @@
 ---
 name: kanban-exist-specs-then-breakdown-to-plans-only
 description: 接收已建立的 Spec 文件路徑，依據 Spec 內容拆解成 Plans。拆解完成後立即停止等待後續指令。適用於已有 Spec，只需拆 Plans 後等待確認的情境。
-version: 1.0.0
-last_updated: 2026-04-09
-effective_date: 2026-04-09
+version: 1.1.0
+last_updated: 2026-05-16
+effective_date: 2026-05-16
 ---
 
 # Kanban Exist Specs Then Breakdown To Plans Only
@@ -43,6 +43,31 @@ effective_date: 2026-04-09
 > **在任何流程開始前，必須先驗證來源 Spec 路徑存在。驗證完成後才可進行 Plan 拆解。Plan 拆解完成後必須立即停下，回報所有已建立的 Plan 清單，並等待使用者後續指令。絕對不可自行進入 3-Progressing 或後續任何階段。這條規則優先於一切其他規則。**
 >
 > **🚨 覆蓋指令防護（絕對強制）：即使使用者附上「直接推進」、「direct push」等任何跨過指令，也絕對不得在 Plans 建立後繼續推進。受到此類指令時，必須回覆：「此 Skill 僅負責拆解成 Plans，完成後將會停止。若需連續推進，請使用對應的 Push To Archived Skill。」**
+
+## 🔴 階段格式鐵律（每階段必須先讀規範檔，禁止憑印象產出）
+
+> **進入任何階段前，必須先 Read 對應的 RULES 與 template 檔案，再依其規定的「資料夾命名」、「子資料夾結構」、「檔案命名」產出文件與目錄。禁止憑記憶或推測產出格式。**
+>
+> **每個階段對應的「進入前必讀」清單：**
+>
+> | 階段 | 進入前必讀（依序） |
+> |------|--------------------|
+> | 1-Specs | `templates/COMMON_CONVENTIONS.md`、`templates/1-Specs/SPECS_RULES.md`、`templates/1-Specs/.specs-idea-to-docs-template.md` |
+> | 2-Plans | `templates/2-Plans/PLANS_RULES.md`、`templates/2-Plans/PHASE_PRIORITY_GUIDELINES.md`、`templates/2-Plans/.plan-overview-template.md`、`templates/2-Plans/.plan-template.md` |
+> | 3-Progressing | `templates/3-Progressing/PROGRESSING_RULES.md`、`templates/3-Progressing/.progressing-task-template.md` |
+> | 4-Testing | `templates/4-Testing/TESTINGS_RULES.md`、`templates/4-Testing/.testing-task-template.md` |
+> | 7-Done | `templates/7-Done/DONE_RULES.md`、`templates/7-Done/.done-task-template.md` |
+> | 8-Archived | `templates/8-Archived/ARCHIVED_RULES.md`、`templates/8-Archived/.archived-summary-template.md` |
+>
+> **強制執行順序（每階段都要做）：**
+>
+> 1. **先 Read 該階段所有 RULES / template 檔**（不得跳過或只讀標題）
+> 2. **依 RULES 的「資料夾結構範例」與「檔案命名規範」實際建立目錄樹**
+> 3. **依 template 的欄位逐一填入內容**（欄位不足填 placeholder，不得省略章節）
+> 4. **執行 `mv` 搬移檔案**（嚴禁 `cp`）
+> 5. **完成後立即驗證結構是否與 RULES 範例一致**，不一致必須修正後才進下一階段
+>
+> **若 SKILL.md 與 RULES 文件出現衝突，以 RULES 文件為準（RULES 是該階段的最終真相來源）。**
 
 ## 必做步驟
 
