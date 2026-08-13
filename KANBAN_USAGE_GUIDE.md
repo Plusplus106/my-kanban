@@ -77,13 +77,13 @@ mkdir -p [專案名稱]/1-Specs/[專案名稱]
 ### 5. 撰寫與執行測試（階段 3 & 4）
 
 1. **撰寫測試 (Stage 3)**: 執行 `npm run gen` 選擇 **STAGE 3**，建立測試任務並撰寫測試代碼。
-2. **執行測試 (Stage 4)**: 執行 `npm run gen` 選擇 **STAGE 4**，執行完整測試範圍；通過後移至 `7-Done/`，失敗則移至 `5-Re-testing/`。
+2. **執行測試 (Stage 4)**: 執行 `npm run gen` 選擇 **STAGE 4**，執行與本次修改相關的 targeted 測試範圍（完整測試範圍需先詢問使用者同意）；通過後移至 `7-Done/`，失敗則移至 `5-Re-testing/`。
 
 **⭐ Testing 品質閘門（強制）**
 
 - 進入 `4-Testing/` 後，不可只移動文件。
 - 必須建立/補齊測試程式碼。
-- 必須執行完整測試範圍並確認 all green。
+- 必須執行與本次修改相關的 targeted 測試範圍（涵蓋所有異動檔及其直接影響的測試）並確認 all green；**若判斷需要執行完整測試範圍，必須先詢問使用者並取得明確同意，不得自行決定執行。**
 - 必須在任務文件記錄測試指令與完整輸出。
 - 未通過時，不可推進到 `7-Done/` 或 `8-Archived/`。
 - 若同批次有 `0-PLAN_OVERVIEW`，每次 plan 文件跨階段後都要同步更新 overview。
@@ -281,7 +281,7 @@ Use AI tools to create plan cards:
 ### 5. Write and Run Tests (Stage 3 and 4)
 
 1. Write tests (Stage 3): run `npm run gen`, select **STAGE 3**, create testing tasks and test code.
-2. Execute tests (Stage 4): run `npm run gen`, select **STAGE 4**, run full testing scope; if passed, move to `7-Done/`; if failed, move to `5-Re-testing/`.
+2. Execute tests (Stage 4): run `npm run gen`, select **STAGE 4**, run the targeted testing scope for the changed code (a full run requires asking the user first); if passed, move to `7-Done/`; if failed, move to `5-Re-testing/`.
 
 Mandatory Testing Quality Gate:
 
