@@ -124,7 +124,7 @@ effective_date: 2026-05-16
 - 若啟用，必須逐階段套用對應模板（progressing/testing/done/archived）。
 - 若流程進入 `4-Testing`，必須完成 Testing 品質閘門後才可進入 `7-Done`：
   - 建立或補齊測試程式碼。
-  - 執行完整測試範圍（不可只跑單一測試檔）。
+  - 執行與本次修改相關的 targeted 測試範圍（涵蓋所有異動檔及其直接影響的測試）。**若判斷需要執行完整測試範圍，必須先詢問使用者並取得明確同意，不得自行決定執行。**
   - 確認全部測試通過（all green）。
   - testing 文件寫入測試指令與完整輸出。
 - 未符合模板時，先自動對齊模板，再轉下一階段（Template Auto-Align First）。

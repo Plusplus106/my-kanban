@@ -65,7 +65,7 @@ effective_date: 2026-05-16
 
 - 使用者選定後，立即進入對應 skill 的問答與流程規範。
 - 進入子 skill 後，完全遵循子 skill 的問答與流程規範。
-- 若子流程會進入 `4-Testing`，必須遵守 Testing 品質閘門（測試程式碼 + 完整測試 + all green + 文件證據）。
+- 若子流程會進入 `4-Testing`，必須遵守 Testing 品質閘門（測試程式碼 + targeted 測試 + all green + 文件證據）。
 - 若選項不存在或檔案缺失，停止並回報缺失項目。
 
 ## 禁止事項

@@ -10,7 +10,7 @@
 
 1. 在對話中輸入對應觸發字串（例如 `$kanban-skill-selector`）。
 2. 依 skill 問答流程回覆，可直接用數字（例如 `1`、`2`）。
-3. 所有流程只要進入 `4-Testing`，都必須通過 Testing 品質閘門（測試程式碼 + 完整測試 + all green + 文件證據）才可推進到 `7-Done/8-Archived`。
+3. 所有流程只要進入 `4-Testing`，都必須通過 Testing 品質閘門（測試程式碼 + targeted 測試 + all green + 文件證據）才可推進到 `7-Done/8-Archived`。
 4. 所有走到 `8-Archived` 的流程，歸檔後會自動執行「專案文件更新」，找到對應文件自動同步，找不到路徑時才停下請使用者提供。
 
 ## Skills 清單
