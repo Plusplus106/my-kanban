@@ -94,6 +94,15 @@
   - 用途：針對已完成任務進行至少三次품質交叉驗證（需求對齊、文件覆蓋、測試執行）。
   - 問答：來源 Plans/Spec 路徑、重複次數（預設 3 次）
 
+### Epic 管理（大主題層）
+
+- `kanban-manage-epics`
+  - 觸發：`$kanban-manage-epics`
+  - 用途：管理 Epic（大主題）生命週期——建立 Epic、掛入／退出／轉移既有 spec、宣告 spec 間前置依賴、同步狀態彙總、解散與收場歸檔。Epic 採引用型索引，絕不搬動子 spec 檔案。
+  - 問答：操作類型（8 選 1）→ 依操作追問（專案根路徑、Epic 編號、spec 路徑等）
+  - 停頓點：⏸️ 建立類先建完等確認；修改／搬移類先列變更清單等確認
+  - 規範：`templates/0-Epics/EPICS_RULES.md`（最終真相來源）
+
 ### 工具型
 
 - `git-add-and-gen-commit-message`

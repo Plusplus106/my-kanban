@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanban Manage Epics"
+  short_description: "Manage epic lifecycle and spec dependencies"
+  default_prompt: "Use $kanban-manage-epics and ask me numbered questions to manage epics, spec membership, and dependencies."

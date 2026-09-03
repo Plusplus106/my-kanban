@@ -1,9 +1,9 @@
 ---
 name: kanban-skill-selector
 description: 高階入口 skill，先讓使用者從多個 kanban skills 中選一個，再進入該 skill 的問答流程。適用於希望先做技能層級選擇，再執行各自流程的情境。
-version: 2.2.0
-last_updated: 2026-05-16
-effective_date: 2026-05-16
+version: 2.3.0
+last_updated: 2026-09-03
+effective_date: 2026-09-03
 ---
 
 ## 🔴 子 Skill 鐵律繼承宣告
@@ -56,10 +56,14 @@ effective_date: 2026-05-16
 - `11. kanban-archive-only` — 確認 Done 文件完成後，執行歸檔搬移
 - `12. kanban-verify-completed-task` — 針對已完成任務進行至少三次品質交叉驗證
 
+**Epic 管理（大主題層）**
+
+- `13. kanban-manage-epics` — 管理 Epic 生命週期：建立、掛入／退出／轉移 spec、宣告前置依賴、同步彙總、解散與收場歸檔（引用型索引，不搬動子 spec）
+
 **工具**
 
-- `13. git-add-and-gen-commit-message` — 針對修改的檔案自動產生 commit message（支援語言參數：zh/en/jp 等，預設英文）
-- `14. git-smart-batch-commit` — 掃描所有變動檔案，依功能分組，分批產生英文 commit message，等待確認後才執行，嚴禁自動 push
+- `14. git-add-and-gen-commit-message` — 針對修改的檔案自動產生 commit message（支援語言參數：zh/en/jp 等，預設英文）
+- `15. git-smart-batch-commit` — 掃描所有變動檔案，依功能分組，分批產生英文 commit message，等待確認後才執行，嚴禁自動 push
 
 ## 分流規則
 
