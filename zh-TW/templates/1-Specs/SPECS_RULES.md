@@ -265,6 +265,24 @@ your-project/1-Specs/2025-12-01-[spec-Ax4m2]-feature-name/
 
 ---
 
+#### 3. RELATIONS.md（關聯檔，視情況建立）
+
+**用途：** 宣告此 spec 的「所屬 Epic（大主題）」與「前置 Spec（實作順序依賴）」
+
+**建立時機（有任一即建立；都沒有則不建）：**
+
+- 此 spec 屬於某個 Epic（`0-Epics/` 底下的大主題）
+- 此 spec 的實作必須等其他 spec 完成（例：增量同步依賴 cursor 分頁的機制）
+
+**規則摘要（完整規則見 `templates/0-Epics/EPICS_RULES.md`）：**
+
+- 格式依 [.spec-relations-template.md](.spec-relations-template.md)，檔名 `[spec-xxxxx]-RELATIONS.md`，與其他 spec 文件同層、同編號。
+- 「所屬 Epic」最多一項（單一歸屬）；前置依賴可跨 Epic。
+- 前置未完成不擋建卡（規格先行），但會擋進 3-Progressing（Stage Entry Gate 依賴閘門）。
+- 問答階段應主動詢問：「這個需求是否屬於某個既有大主題（Epic）？是否必須等某個 spec 完成後才能實作？」
+
+---
+
 ### 選擇性文件（視需求建立）
 
 AI 應根據問答結果的複雜度決定是否需要以下文件：
@@ -479,6 +497,7 @@ AI 應根據問答結果的複雜度決定是否需要以下文件：
 3. **記錄完整對話** - 保存在 IDEA_DESCRIPTION.md
 4. **彙整規格文件** - 根據複雜度決定建立哪些文件
 5. **必須建立 CLEANUP_AND_INTEGRATION.md** - 即使簡單功能也要思考清理需求
+5-1. **詢問 Epic 歸屬與前置依賴** - 屬於既有大主題或需等其他 spec 完成時，建立 RELATIONS.md（見上方關聯檔規則）
 6. **優先考量並行性** - 在文件中思考並行處理的可能性（詳見下方說明）
 7. **規劃任務規模** - 確保整體需求可被拆分為 1-8 個獨立任務，並以簡短任務數量為首選
 

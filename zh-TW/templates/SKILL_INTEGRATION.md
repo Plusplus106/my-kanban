@@ -4,9 +4,9 @@
 >
 > 適用範圍：workflow skill（目前）或未來替代自動化工具（之後）
 
-**Version:** 1.3.0  
-**Last Updated:** 2026-03-09  
-**Effective Date:** 2026-03-09
+**Version:** 1.4.0  
+**Last Updated:** 2026-09-03  
+**Effective Date:** 2026-09-03
 
 ---
 
@@ -103,7 +103,8 @@
 
 | 階段            | 必讀規則                                                                             | 必用模板                                                                                    |
 | --------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| `1-Specs`       | `templates/1-Specs/SPECS_RULES.md`                                                   | `templates/1-Specs/.specs-idea-to-docs-template.md`                                         |
+| `0-Epics`（Epic 操作時） | `templates/0-Epics/EPICS_RULES.md`                                          | `templates/0-Epics/.epic-overview-template.md`、`templates/0-Epics/.epic-description-template.md` |
+| `1-Specs`       | `templates/1-Specs/SPECS_RULES.md`                                                   | `templates/1-Specs/.specs-idea-to-docs-template.md`；有 Epic 歸屬或前置依賴時加 `templates/1-Specs/.spec-relations-template.md` |
 | `2-Plans`       | `templates/2-Plans/PLANS_RULES.md`、`templates/2-Plans/PHASE_PRIORITY_GUIDELINES.md` | `templates/2-Plans/.plan-overview-template.md`、`templates/2-Plans/.plan-template.md`       |
 | `3-Progressing` | `templates/3-Progressing/PROGRESSING_RULES.md`                                       | `templates/3-Progressing/.progressing-task-template.md`                                     |
 | `4-Testing`     | `templates/4-Testing/TESTINGS_RULES.md`                                              | `templates/4-Testing/.testing-task-template.md`                                             |
@@ -127,6 +128,8 @@
 10. 同批次一次推進只允許單一目標階段；不可在同一步驟把同批次文件拆分到多個階段。
 11. 🚪 **Stage Entry Gate（強制）**：每次跨階段移動後，必須確認來源階段中該批次文件已不存在（已被 `mv` 移走，不可用 `cp`）。若來源資料夾已無同批次文件，刪除空資料夾。
 12. ✅ **Stage Exit Checkpoint（強制）**：離開每個階段前，必須先完成所有 checkbox 勾選、補齊工作結果描述、更新 PLAN_OVERVIEW。以上三項未完成前，不得執行移動。
+13. ⛓️ **依賴閘門（進 `3-Progressing` 前，強制）**：若該批次所屬 spec 資料夾內存在 `[spec-xxxxx]-RELATIONS.md`，其「前置 Spec」必須全數已在 `7-Done/` 或 `8-Archived/`；未滿足時停止自動流程並回報，僅在使用者明示覆寫（並於 RELATIONS.md 覆寫記錄區留下記錄）後才可繼續。
+14. 🔄 **EPIC_OVERVIEW 同步（強制）**：若該 spec 的 `RELATIONS.md` 有所屬 Epic，每次跨階段移動後必須同步更新該 Epic 的 `EPIC_OVERVIEW.md`（目前階段、位置索引、統計、最後更新時間）。
 
 **Template Auto-Align First：** 未符合模板時，先修正到符合模板，再進入下一階段；不得因格式對齊而中止。
 

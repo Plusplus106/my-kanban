@@ -2,11 +2,11 @@
 
 > **📌 本文件定義所有階段共通遵循的規範和慣例**
 >
-> 適用範圍：specs、plans (原 tasks)、3-Progressing、testing、re-testing、done、on-hold、archived 所有階段
+> 適用範圍：epics、specs、plans (原 tasks)、3-Progressing、testing、re-testing、done、on-hold、archived 所有階段
 
-**Version:** 1.6.0  
-**Last Updated:** 2026-03-09  
-**Effective Date:** 2026-03-09
+**Version:** 1.7.0  
+**Last Updated:** 2026-09-03  
+**Effective Date:** 2026-09-03
 
 ---
 
@@ -30,7 +30,8 @@
 6. [檔案命名與編號規範](#檔案命名與編號規範)
 7. [資料夾組織規則](#資料夾組織規則)
 8. [檔案引用規範](#檔案引用規範)
-9. [AI 工具使用記錄](#ai-工具使用記錄)
+9. [Epic 與跨 Spec 關聯規範](#epic-與跨-spec-關聯規範)
+10. [AI 工具使用記錄](#ai-工具使用記錄)
 
 ---
 
@@ -129,11 +130,13 @@
 
 每次任務文件從一個階段進入下一個階段時，**必須依序完成以下動作，缺一不可**：
 
+0. **依賴閘門檢查（僅進入 3-Progressing 時）**：若該批次所屬 spec 資料夾內存在 `[spec-xxxxx]-RELATIONS.md`，必須先確認其「前置 Spec」全數已在 `7-Done/` 或 `8-Archived/`（已歸檔＝已滿足）。未滿足時**停下回報，不得自動繼續**；僅在使用者明示覆寫、並於 RELATIONS.md「覆寫記錄」區留下日期與理由後才可放行（詳見 `templates/0-Epics/EPICS_RULES.md`）。
 1. **移動（mv）**：將文件從來源階段資料夾移動到目標階段對應資料夾。**必須使用 `mv`，嚴禁使用 `cp`（複製）**。
 2. **更新狀態**：移動完成後，**立即**更新文件中的「狀態」欄位為目標階段狀態（例如：「處理中 (Progressing)」→「測試中 (Testing)」）。
 3. **更新欄位**：依目標階段 RULES 的「必須修改的欄位」補齊所有欄位（例如：開始時間、AI 工具、進度 checklist）。
 4. **清除來源**：確認來源階段中該批次文件已不存在（已被 `mv` 移走）。若來源資料夾中已無同批次文件（含 `PLAN_OVERVIEW`），刪除該空資料夾。
-5. **確認完成**：以上四步全部完成後，才可開始該階段的實作工作（寫程式碼、寫測試、建 summary 等）。
+5. **同步 EPIC_OVERVIEW**：若該 spec 的 `RELATIONS.md` 有所屬 Epic，立即更新該 Epic 的 `EPIC_OVERVIEW.md`（目前階段、位置索引、統計、最後更新時間）。
+6. **確認完成**：以上步驟全部完成後，才可開始該階段的實作工作（寫程式碼、寫測試、建 summary 等）。
 
 ### Stage Entry Gate 禁止行為
 
@@ -141,6 +144,8 @@
 - ❌ 不得用「複製（cp）」取代「移動（mv）」，導致來源殘留。
 - ❌ 不得在移動後跳過欄位更新就直接開始實作。
 - ❌ 不得移動文件後不清除來源資料夾中的殘留。
+- ❌ 不得在依賴閘門未通過（且無使用者明示覆寫記錄）時進入 3-Progressing。
+- ❌ 不得在 spec 有所屬 Epic 時漏更新 EPIC_OVERVIEW。
 
 ### 來源清理驗證（強制）
 
@@ -650,6 +655,38 @@ find <project>/{來源階段}/ -name "*<spec-id>*" -o -name "*<plan-id>*"
 
 **Plan 內引用 Spec 必須使用 `[spec-xxxxx]` 前綴**
 
+**引用 Epics 文件：**
+
+```markdown
+[epic-xxxxx] 主題名稱
+```
+
+---
+
+## Epic 與跨 Spec 關聯規範
+
+> **📌 本章節為摘要；完整規則的最終真相來源是 [templates/0-Epics/EPICS_RULES.md](0-Epics/EPICS_RULES.md)。**
+
+### 層級與定位
+
+- 層級關係：**Epic > Spec > Plan**。Epic（大主題）收納多個 spec，是**引用型索引**——子 spec 永遠留在自己所在的階段資料夾，Epic 只登記引用，**嚴禁為 Epic 搬動子 spec 檔案**。
+- Epic 存放於專案根目錄的 `0-Epics/`，與 `1-Specs/` ～ `8-Archived/` 平行；Epic 不在 1～7 階段之間移動，收場時整個資料夾歸檔至 `8-Archived/`。
+- 編號 `[epic-xxxxx]`（5 碼，同本文件編號規則）；資料夾命名 `[YYYY-MM-DD]-[epic-xxxxx]-[theme-name]/`，資料夾內所有文件共用同一編號。
+
+### 關聯檔 RELATIONS.md
+
+- spec 的「所屬 Epic（單值，歸屬唯一權威來源）」與「前置 Spec 清單」統一寫在該 spec 資料夾內的 `[spec-xxxxx]-RELATIONS.md`（模板：`templates/1-Specs/.spec-relations-template.md`）。
+- 一個 spec 最多屬於一個 Epic；跨 Epic 需求一律走前置依賴宣告。歸屬衝突時停下由使用者裁決，嚴禁自動處理。
+- 前置依賴可跨 Epic、可指向已歸檔的 spec（已歸檔＝已滿足）；禁止自我依賴與循環依賴。
+
+### 依賴閘門（與 Stage Entry Gate 步驟 0 相同）
+
+- 建卡不擋（規格先行）；拆 plan 警告不阻擋；**進 3-Progressing 硬閘門**——前置 spec 必須全數已在 `7-Done/` 或 `8-Archived/`，否則停下回報，僅使用者明示覆寫（留記錄）才放行。
+
+### EPIC_OVERVIEW 同步
+
+- spec 跨階段移動時，若其 RELATIONS.md 有所屬 Epic，必須同步更新該 Epic 的 `EPIC_OVERVIEW.md`（比照 PLAN_OVERVIEW 同步規範的精神）。
+
 ---
 
 ## AI 工具使用記錄
@@ -672,6 +709,7 @@ find <project>/{來源階段}/ -name "*<spec-id>*" -o -name "*<plan-id>*"
 
 - **核心指引：** [KANBAN_INSTRUCTION.md](../../KANBAN_INSTRUCTION.md)
 - **自動化整合：** [templates/SKILL_INTEGRATION.md](SKILL_INTEGRATION.md)
+- **Epics 規則：** [templates/0-Epics/EPICS_RULES.md](0-Epics/EPICS_RULES.md)
 - **Specs 規則：** [templates/1-Specs/SPECS_RULES.md](1-Specs/SPECS_RULES.md)
 - **Plans 規則：** [templates/2-Plans/PLANS_RULES.md](2-Plans/PLANS_RULES.md)
 - **Progressing 規則：** [templates/3-Progressing/PROGRESSING_RULES.md](3-Progressing/PROGRESSING_RULES.md)

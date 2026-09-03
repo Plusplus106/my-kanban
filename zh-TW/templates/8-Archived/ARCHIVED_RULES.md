@@ -21,15 +21,17 @@
 
 ## ✅ 命名與結構（強制）
 
-### 1) 歸檔根資料夾命名（只能用 spec 或 no-spec）
+### 1) 歸檔根資料夾命名（只能用 spec、no-spec 或 epic）
 
 - **有 Spec 流程：** `YYYY-MM-DD-[spec-xxxxx]-專案名稱/`
 - **無 Spec 流程：** `YYYY-MM-DD-[no-spec]-專案名稱/`
+- **Epic 收場歸檔：** `[YYYY-MM-DD]-[epic-xxxxx]-[theme-name]/`（保留原 `0-Epics/` 資料夾名整個搬入；內部結構依 `templates/0-Epics/EPICS_RULES.md`，不套用下方「子資料夾名稱」規則；前提是所有子 spec 皆已歸檔且使用者明示確認）
 
 **禁止事項：**
 
 - ❌ 不可用 `[plan-xxxxx]` 當歸檔根資料夾識別。
 - ❌ 不可建立 `YYYY-MM-DD-[plan-xxxxx]-專案名稱/` 這種舊格式。
+- ❌ 不可在仍有子 spec 未歸檔時歸檔 Epic 資料夾。
 
 ### 2) 子資料夾名稱
 
@@ -44,6 +46,7 @@
 
 - **有 Spec 流程：** `[spec-xxxxx]-summary.md`
 - **無 Spec 流程：** `[no-spec]-summary.md`
+- **Epic 收場歸檔：** `[epic-xxxxx]-summary.md`（涵蓋主題層成果與各子 spec 的歸檔摘要連結）
 
 ---
 

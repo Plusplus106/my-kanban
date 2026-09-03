@@ -13,6 +13,7 @@
 > - 📋 任務卡片必要欄位規範
 > - 📋 暫存檔案管理
 > - ⭐ **Lint 檢查必須通過** (所有程式碼必須通過 ESLint/TSLint/Pylance 檢查)
+> - ⛓️ **依賴閘門（進入本階段前，強制）**：若 spec 資料夾內有 `[spec-xxxxx]-RELATIONS.md`，其「前置 Spec」必須全數已在 `7-Done/8-Archived`，否則不得進入本階段（詳見 [0-Epics/EPICS_RULES.md](../0-Epics/EPICS_RULES.md)）
 > - 🔖 遵循共通規範 ([COMMON_CONVENTIONS.md](../COMMON_CONVENTIONS.md))
 
 ---

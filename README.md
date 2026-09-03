@@ -37,7 +37,8 @@
 - ⚡ **並行執行**：最大化計畫並行執行能力，大幅縮短開發時間
 - 🔄 **無縫接力**：解決 AI 工具額度限制，在不同 AI 視窗/對話間無縫切換
 - 📊 **集中式管理**：統一的模板和規則，確保所有專案一致性
-- 📁 **雙層架構**：
+- 📁 **分層架構**：
+  - **0-Epics**: 大主題引用型索引，收納多個 Spec 並宣告前置依賴（選用，詳見 `templates/0-Epics/EPICS_RULES.md`）
   - **1-Specs**: 產品需求與系統設計 (What & Why)
   - **2-Plans**: 具體實作步驟與任務 (How & When)
 
@@ -158,6 +159,7 @@ my-kanban/
 This is a task management system designed for multi-AI collaboration across projects.
 It separates work into:
 
+- **0-Epics**: Reference-style theme index that groups multiple Specs and declares prerequisites (optional; see `templates/0-Epics/EPICS_RULES.md`)
 - **1-Specs**: Requirements and design (What & Why)
 - **2-Plans**: Implementation tasks and execution steps (How & When)
 

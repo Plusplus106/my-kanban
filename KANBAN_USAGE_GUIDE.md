@@ -132,6 +132,7 @@ mkdir -p [專案名稱]/1-Specs/[專案名稱]
 
 ### 各階段說明
 
+- **[0-Epics/]** - 大主題引用型索引（選用，不在順向流程內；詳見 `templates/0-Epics/EPICS_RULES.md`）
 - **[1-Specs/]** - 產品/系統設計 (Product/System Design)
 - **[2-Plans/]** - 實作計畫 (Implementation Tasks)
 - **[3-Progressing/]** - 正在寫程式碼 (Coding)
@@ -336,6 +337,7 @@ Stage 5: Archive project
 
 ### Stage Definitions
 
+- **[0-Epics/]** - Reference-style theme index (optional; outside the forward flow; see `templates/0-Epics/EPICS_RULES.md`)
 - **[1-Specs/]** - Product/System Design
 - **[2-Plans/]** - Implementation Tasks
 - **[3-Progressing/]** - Coding
@@ -541,6 +543,7 @@ Stage 5: プロジェクトアーカイブ
 
 ### 各ステージ定義
 
+- **[0-Epics/]** - Reference-style theme index (optional; outside the forward flow; see `templates/0-Epics/EPICS_RULES.md`)
 - **[1-Specs/]** - Product/System Design
 - **[2-Plans/]** - Implementation Tasks
 - **[3-Progressing/]** - Coding

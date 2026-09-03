@@ -37,6 +37,7 @@
 
 - **無依賴關係**，或
 - **依賴已滿足**（被依賴的計畫已在 `[專案名稱]/7-Done/` 中）
+- **spec 層依賴閘門通過**：若該批次 spec 資料夾內有 `[spec-xxxxx]-RELATIONS.md`，其「前置 Spec」必須全數已在 `7-Done/` 或 `8-Archived/`；未滿足時該批次不可進入 `3-Progressing`，必須停下回報（僅使用者明示覆寫並留下記錄後才可放行，詳見 `templates/0-Epics/EPICS_RULES.md`）
 
 **檢查「是否可並行執行」欄位:**
 

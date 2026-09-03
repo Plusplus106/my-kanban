@@ -169,6 +169,7 @@ d) **⭐ 阻塞性計畫的優先級評估**：會阻塞別人的計畫，無論
 
 #### 編號格式
 
+- **Epics**：`[epic-xxxxx]` (5 碼英數隨機，大主題層，詳見 `templates/0-Epics/EPICS_RULES.md`)
 - **Specs**：`[spec-xxxxx]` (5 碼英數隨機)
 - **Plans**：`[plan-xxxxx]` (5 碼英數隨機)
 
@@ -178,6 +179,7 @@ d) **⭐ 阻塞性計畫的優先級評估**：會阻塞別人的計畫，無論
 
 - 必須使用 ID，例如：「根據 [spec-A1b2C] 實作...」
 - 跨層級引用：「實作 [spec-A1b2C] 的 [plan-X9y8Z] 計畫」
+- 引用大主題：「屬於 [epic-Qw3rT] 主題」
 
 ---
 
@@ -256,6 +258,9 @@ d) **⭐ 阻塞性計畫的優先級評估**：會阻塞別人的計畫，無論
 - **特殊流程**：
   - 測試失敗：`Testing` → `Re-testing` → `Testing`
   - 暫停：任意階段 → `6-On-hold`
+- **Epic（大主題）補充**：
+  - `0-Epics/` 不在順向流程內——Epic 是引用型索引，子 spec 留在原階段不搬動；所有子 spec 歸檔後，Epic 整個資料夾經使用者確認直接歸檔到 `8-Archived/`。
+  - spec 進入 `3-Progressing` 前，若其資料夾內有 `RELATIONS.md`，必須通過依賴閘門（前置 spec 全數已在 `7-Done/8-Archived`），詳見 `templates/0-Epics/EPICS_RULES.md`。
 
 **模式補充：**
 
@@ -449,6 +454,7 @@ All created Specs and Plans must include unique ID prefixes:
 
 #### ID Format
 
+- Epics: `[epic-xxxxx]` (theme layer; see `templates/0-Epics/EPICS_RULES.md`)
 - Specs: `[spec-xxxxx]`
 - Plans: `[plan-xxxxx]`
 
@@ -458,6 +464,7 @@ Reference style in docs or commit messages:
 
 - Use IDs explicitly, e.g., "implement based on [spec-A1b2C]".
 - Cross-level reference: "implement [plan-X9y8Z] from [spec-A1b2C]".
+- Theme reference: "belongs to [epic-Qw3rT]".
 
 ### 4. Code Comment Language
 
@@ -519,6 +526,11 @@ Special flows:
 
 - Test failed: `Testing` -> `Re-testing` -> `Testing`
 - Pause: any stage -> `6-On-hold`
+
+Epic (theme layer) notes:
+
+- `0-Epics/` sits outside the forward flow — an Epic is a reference-style index; child specs stay in their own stage folders. After all child specs are archived, the Epic folder itself is archived directly into `8-Archived/` upon user confirmation.
+- Before a spec enters `3-Progressing`, if its folder contains `RELATIONS.md`, the dependency gate must pass (all prerequisite specs already in `7-Done/8-Archived`); see `templates/0-Epics/EPICS_RULES.md`.
 
 Mode notes:
 
@@ -708,6 +720,7 @@ Additional fields by stage:
 
 #### ID 形式
 
+- Epics: `[epic-xxxxx]`（テーマ層。詳細は `templates/0-Epics/EPICS_RULES.md`）
 - Specs: `[spec-xxxxx]`
 - Plans: `[plan-xxxxx]`
 
@@ -717,6 +730,7 @@ Additional fields by stage:
 
 - ID を明記する。例: "[spec-A1b2C] に基づき実装"。
 - 階層横断参照: "[spec-A1b2C] の [plan-X9y8Z] を実装"。
+- テーマ参照: "[epic-Qw3rT] に属する"。
 
 ### 4. コードコメント言語規則
 
@@ -778,6 +792,11 @@ Additional fields by stage:
 
 - テスト失敗: `Testing` -> `Re-testing` -> `Testing`
 - 一時停止: 任意ステージ -> `6-On-hold`
+
+Epic（テーマ層）補足:
+
+- `0-Epics/` は順方向フローの外にある。Epic は参照型インデックスであり、子 spec は各自のステージに留まる。全子 spec のアーカイブ後、ユーザー確認を経て Epic フォルダごと `8-Archived/` へ直接アーカイブする。
+- spec が `3-Progressing` に入る前、フォルダ内に `RELATIONS.md` がある場合は依存ゲート（前提 spec がすべて `7-Done/8-Archived` にあること）を通過しなければならない。詳細は `templates/0-Epics/EPICS_RULES.md`。
 
 モード補足:
 
