@@ -1,6 +1,6 @@
 {
   "name": "my-kanban",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "AI-Collaborative Kanban Task Management System designed for multi-AI tool collaboration with parallel execution capabilities",
   "main": "index.js",
   "scripts": {
