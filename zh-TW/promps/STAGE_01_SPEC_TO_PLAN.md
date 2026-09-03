@@ -24,6 +24,7 @@
    - 仔細閱讀 `1-Specs` 資料夾中的所有 .md 文件
    - 理解專案的功能需求與系統設計
    - 提取文件中的 `[spec-xxxxx]` ID
+   - ⛓️ **spec 層前置檢查（警告不阻擋）：** 若資料夾內有 `[spec-xxxxx]-RELATIONS.md` 且「前置 Spec」尚未全數在 `7-Done/8-Archived`，必須向使用者提示「前置尚未完成，plan 細節可能過時」，由使用者決定是否繼續拆解（詳見 `templates/0-Epics/EPICS_RULES.md`）
 
 2. **拆分實作計畫 (Plans)**
    - 將規格需求拆分為獨立的、可執行的實作計畫

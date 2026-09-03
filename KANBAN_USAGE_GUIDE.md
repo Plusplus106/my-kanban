@@ -160,6 +160,11 @@ mkdir -p [專案名稱]/1-Specs/[專案名稱]
 - `[YYYY-MM-DD]-[spec-xxxxx]-[數字]-[優先級]-[plan-yyyyy]-[類別]-簡短描述.md`
 - 範例：`2025-02-10-[spec-Ax4m2]-2-high-[plan-Az4a2]-feature-login.md`
 
+### Epic 資料夾 (0-Epics)
+
+- `[YYYY-MM-DD]-[epic-xxxxx]-[theme-name]/`，內部文件共用編號（如 `[epic-xxxxx]-EPIC_OVERVIEW.md`）
+- 範例：`2026-09-03-[epic-Qw3rT]-recipe-list-scaling/`
+
 ---
 
 ## 📊 計畫卡片範例 (2-Plans 階段)
@@ -364,6 +369,11 @@ Stage 5: Archive project
 
 - `[YYYY-MM-DD]-[spec-xxxxx]-[number]-[priority]-[plan-yyyyy]-[type]-short-description.md`
 - Example: `2025-02-10-[spec-Ax4m2]-2-high-[plan-Az4a2]-feature-login.md`
+
+### Epic folders (0-Epics)
+
+- `[YYYY-MM-DD]-[epic-xxxxx]-[theme-name]/`, files inside share the same ID (e.g. `[epic-xxxxx]-EPIC_OVERVIEW.md`)
+- Example: `2026-09-03-[epic-Qw3rT]-recipe-list-scaling/`
 
 ---
 
@@ -570,6 +580,11 @@ Stage 5: プロジェクトアーカイブ
 
 - `[YYYY-MM-DD]-[spec-xxxxx]-[number]-[priority]-[plan-yyyyy]-[type]-short-description.md`
 - 例: `2025-02-10-[spec-Ax4m2]-2-high-[plan-Az4a2]-feature-login.md`
+
+### Epic フォルダ（0-Epics）
+
+- `[YYYY-MM-DD]-[epic-xxxxx]-[theme-name]/`、内部ファイルは同一 ID を共有（例: `[epic-xxxxx]-EPIC_OVERVIEW.md`）
+- 例: `2026-09-03-[epic-Qw3rT]-recipe-list-scaling/`
 
 ---
 
