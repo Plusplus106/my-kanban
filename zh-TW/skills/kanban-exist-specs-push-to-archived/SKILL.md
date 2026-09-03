@@ -1,9 +1,9 @@
 ---
 name: kanban-exist-specs-push-to-archived
 description: 接收已建立的 Spec 文件路徑，依據 Spec 內容拆解成 Plans，等待使用者確認後再連續推進到 8-Archived。適用於 Spec 已寫好，要直接從 Spec 出發拆 Plans 並一路歸檔的情境。
-version: 2.0.0
-last_updated: 2026-05-16
-effective_date: 2026-05-16
+version: 2.0.1
+last_updated: 2026-09-03
+effective_date: 2026-09-03
 ---
 
 # Kanban Exist Specs Push To Archived
@@ -70,6 +70,8 @@ effective_date: 2026-05-16
 ## 參考規範
 
 - `templates/COMMON_CONVENTIONS.md`
+- `templates/0-Epics/EPICS_RULES.md`
+- `templates/1-Specs/.spec-relations-template.md`
 - `templates/SKILL_INTEGRATION.md`
 - `templates/1-Specs/SPECS_RULES.md`
 - `templates/2-Plans/PLANS_RULES.md`

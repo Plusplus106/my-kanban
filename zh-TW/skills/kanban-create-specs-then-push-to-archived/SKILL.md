@@ -1,9 +1,9 @@
 ---
 name: kanban-create-specs-then-push-to-archived
 description: 先建立 Spec 文件（停頓等使用者確認），再拆解成 Plans（停頓等使用者確認），確認後自動連續推進到 8-Archived。適用於需要從頭建立需求文件，並希望每個重要節點都能人工把關的情境。
-version: 1.7.0
-last_updated: 2026-05-16
-effective_date: 2026-05-16
+version: 1.8.0
+last_updated: 2026-09-03
+effective_date: 2026-09-03
 ---
 
 # Kanban Create Specs Then Push To Archived
@@ -70,11 +70,19 @@ effective_date: 2026-05-16
 
 - 描述此 Spec 的功能目標、背景、限制或任何相關討論內容（可多行）。
 
+3. Epic 歸屬與前置依賴（視情況）
+
+- 此需求是否屬於某個既有大主題（`0-Epics/` 的 Epic）？是否必須等某個 spec 完成後才能實作（前置依賴）？
+- 有任一項時：依 `templates/1-Specs/.spec-relations-template.md` 建立 `[spec-xxxxx]-RELATIONS.md`，並同步更新該 Epic 的 `EPIC_OVERVIEW.md`；歸屬衝突時停下，依 `templates/0-Epics/EPICS_RULES.md` 交使用者裁決。
+- 都沒有時不建 RELATIONS.md，直接進入下一步。
+
 ## 參考規範
 
 - `templates/COMMON_CONVENTIONS.md`
 - `templates/SKILL_INTEGRATION.md`
 - `templates/1-Specs/SPECS_RULES.md`
+- `templates/0-Epics/EPICS_RULES.md`
+- `templates/1-Specs/.spec-relations-template.md`
 - `templates/1-Specs/.specs-idea-to-docs-template.md`
 - `templates/2-Plans/PLANS_RULES.md`
 - `templates/2-Plans/PHASE_PRIORITY_GUIDELINES.md`

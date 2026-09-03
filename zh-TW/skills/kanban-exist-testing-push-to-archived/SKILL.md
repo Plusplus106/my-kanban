@@ -1,9 +1,9 @@
 ---
 name: kanban-exist-testing-push-to-archived
 description: 接收已建立的 testing 文件（單一、多個、或資料夾），從 4-Testing 開始連續推進到 8-Archived，並完成 summary。適用於開發已修改完成、只需完成驗證與歸檔的情境。
-version: 2.0.0
-last_updated: 2026-05-16
-effective_date: 2026-05-16
+version: 2.0.1
+last_updated: 2026-09-03
+effective_date: 2026-09-03
 ---
 
 # Kanban Exist Testing Push To Archived
@@ -70,6 +70,8 @@ effective_date: 2026-05-16
 ## 參考規範
 
 - `templates/COMMON_CONVENTIONS.md`
+- `templates/0-Epics/EPICS_RULES.md`
+- `templates/1-Specs/.spec-relations-template.md`
 - `templates/SKILL_INTEGRATION.md`
 - `templates/4-Testing/TESTINGS_RULES.md`
 - `templates/4-Testing/.testing-task-template.md`

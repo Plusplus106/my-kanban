@@ -70,6 +70,11 @@
   - 問答：來源 Spec 路徑
   - 停頓點：⏸️ Plans 建立確認 → 自動推進
 
+- `kanban-exist-specs-then-breakdown-to-plans-only`
+  - 觸發：`$kanban-exist-specs-then-breakdown-to-plans-only`
+  - 用途：接收既有 Spec，只拆解成 Plans，完成後停止不推進。
+  - 問答：來源 Spec 路徑
+
 - `kanban-exist-plans-push-to-archived`
   - 觸發：`$kanban-exist-plans-push-to-archived`
   - 用途：接收既有 Plans，驗證後自動推進到 Archived。

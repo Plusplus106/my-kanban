@@ -1,9 +1,9 @@
 ---
 name: kanban-create-plans-then-push-to-archived
 description: 先建立 Plan 文件並等待使用者確認；確認後自動從 Plan 推進到 Progressing、Testing、Done、Archived。適用於需要先看 plan 再連續執行後續階段的情境。
-version: 2.0.0
-last_updated: 2026-05-16
-effective_date: 2026-05-16
+version: 2.0.1
+last_updated: 2026-09-03
+effective_date: 2026-09-03
 ---
 
 # Kanban Create Plans Then Push To Archived
@@ -67,6 +67,8 @@ effective_date: 2026-05-16
 
 ## 參考規範
 
+- `templates/0-Epics/EPICS_RULES.md`
+- `templates/1-Specs/.spec-relations-template.md`
 - `templates/2-Plans/PLANS_RULES.md`
 - `templates/2-Plans/.plan-template.md`
 - `templates/3-Progressing/PROGRESSING_RULES.md`

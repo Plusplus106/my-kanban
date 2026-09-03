@@ -1,7 +1,7 @@
 ---
 name: kanban-manage-epics
 description: 管理 Epic（大主題）層的完整生命週期：建立 epic、掛入／退出／轉移既有 spec、宣告 spec 間前置依賴、同步狀態彙總、解散與收場歸檔。Epic 採引用型索引，絕不搬動子 spec 檔案。支援可用數字回答的固定問答流程。
-version: 1.0.1
+version: 1.0.2
 last_updated: 2026-09-03
 effective_date: 2026-09-03
 ---
@@ -117,7 +117,7 @@ effective_date: 2026-09-03
 # [epic-xxxxx] {主題名稱} - Epic Overview
 
 **建立日期：** YYYY-MM-DD
-**狀態：** 進行中 (Active)｜已完結待歸檔 (Completed)｜已歸檔 (Archived)
+**狀態：** 進行中 (Active)｜已完結待歸檔 (Completed)｜已歸檔 (Archived)｜已解散 (Dissolved)
 **最後更新：** YYYY-MM-DD HH:mm
 
 ## 📋 子 Spec 索引與狀態彙總

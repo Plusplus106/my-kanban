@@ -1,9 +1,9 @@
 ---
 name: kanban-archive-only
 description: 接收使用者指定要歸檔的文件或資料夾，優先依 templates/8-Archived 規範完成搬移與 summary 建立。適用於使用者要求指定來源後直接歸檔，完成 summary 就停下等待下一步指令的情境。
-version: 2.0.0
-last_updated: 2026-05-16
-effective_date: 2026-05-16
+version: 2.1.0
+last_updated: 2026-09-03
+effective_date: 2026-09-03
 ---
 
 # Kanban Archive Only
@@ -76,6 +76,8 @@ effective_date: 2026-05-16
 
 - `templates/KANBAN_INSTRUCTION.md`
 - `templates/COMMON_CONVENTIONS.md`
+- `templates/0-Epics/EPICS_RULES.md`
+- `templates/1-Specs/.spec-relations-template.md`
 - `templates/8-Archived/ARCHIVED_RULES.md`
 - `templates/8-Archived/.archived-summary-template.md`
 
@@ -496,6 +498,15 @@ Read summary 後檢查：
 6. **可直接跳過的情況**（不中斷，自動略過，並在最終回報中說明原因）：
    - 找不到任何文件路徑，**且**本次變動確認不涉及任何文件內容的修改
    - 本次任務純粹是系統內部結構調整，無公開行為或說明異動
+
+## Epic 收尾檢查（歸檔後自動執行）
+
+每次完成 spec 歸檔後，必須執行：
+
+1. 讀取剛歸檔 spec 的 `[spec-xxxxx]-RELATIONS.md`（若無此檔＝無 Epic 歸屬，跳過本節）。
+2. 若有「所屬 Epic」，同步更新該 Epic 的 `EPIC_OVERVIEW.md`：目前階段改 `8-Archived`、位置索引補最終歸檔路徑、統計與最後更新時間（依 `templates/COMMON_CONVENTIONS.md` Stage Entry Gate 步驟 5）。
+3. 掃描該 Epic 的 `EPIC_OVERVIEW.md` 索引表，逐一確認子 spec 實際位置：若**所有**子 spec 皆已在 `8-Archived/`，向使用者提示「此 Epic 的所有子 spec 已全數歸檔，可執行 `$kanban-manage-epics` 操作 8 收場歸檔」。**僅提示，嚴禁自動執行收場**。
+4. 規範依據：`templates/0-Epics/EPICS_RULES.md`。
 
 ## 禁止事項
 
