@@ -107,6 +107,7 @@ effective_date: 2026-05-01
 
 ## 禁止事項
 
-- 永遠禁止執行 `git commit` 或 `git push`。
+- **永遠禁止執行 `git commit` 或 `git push`。**
+- **嚴格禁止自動執行任何測試（如 `npm test`、`jest`、`pytest` 等）或建置指令（如 `npm run build`）。如果要跑，絕對必須先停下來詢問，獲得使用者明確同意後才能開始。**
 - 禁止 add out-of-scope 檔案。
 - 若無法可靠判定 in-scope 清單，必須先停下並請使用者確認檔案清單。

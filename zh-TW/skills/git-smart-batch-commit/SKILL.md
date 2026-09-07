@@ -1,9 +1,9 @@
 ---
 name: git-smart-batch-commit
 description: 掃描 repo 中所有已變動的檔案，依照功能/類別自動分組，為每個分組產生詳細的 commit message（支援語言參數，預設英文）。產出後強制暫停等待使用者確認，使用者確認指定批次後才依序執行 git add + commit，絕對嚴格禁止自動 push。
-version: 1.1.0
-last_updated: 2026-05-01
-effective_date: 2026-05-01
+version: 1.2.0
+last_updated: 2026-09-08
+effective_date: 2026-09-08
 ---
 
 # Git Smart Batch Commit
@@ -169,6 +169,7 @@ effective_date: 2026-05-01
 > ⛔ 以下規則為最高優先級，任何情況下均不得違反。
 
 - **永遠嚴格禁止執行 `git push`，無論使用者是否要求，無論任何理由，絕無例外。**
+- **嚴格禁止自動執行任何測試（如 `npm test`、`jest`、`pytest` 等）或建置指令（如 `npm run build`）。如果要跑，絕對必須先停下來詢問，獲得使用者明確同意後才能開始。**
 - **禁止在使用者明確確認前，執行任何 `git add` 或 `git commit`。**
 - 禁止使用 `git add .`、`git add -A`、`git add --all`，必須逐一列出檔案路徑。
 - 禁止將不同批次的檔案混在同一個 commit 中。
