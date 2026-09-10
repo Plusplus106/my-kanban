@@ -1,9 +1,9 @@
 ---
 name: git-smart-batch-commit
-description: 掃描 repo 中所有已變動的檔案，依照功能/類別自動分組，為每個分組產生詳細的 commit message（支援語言參數，預設英文）。產出後強制暫停等待使用者確認，使用者確認指定批次後才依序執行 git add + commit，絕對嚴格禁止自動 push。
-version: 1.2.0
-last_updated: 2026-09-08
-effective_date: 2026-09-08
+description: 掃描 repo 中所有已變動的檔案，依照功能/類別自動分組，為每個分組產生詳細的 commit message（支援語言參數，預設英文）。產出後強制暫停等待使用者確認，使用者確認指定批次後才依序執行 git add + commit，絕對嚴格禁止自動 push。本 skill 唯一職責是分析 diff、分組、寫 commit message，絕對嚴格禁止執行任何測試或建置指令。
+version: 1.3.0
+last_updated: 2026-09-10
+effective_date: 2026-09-10
 ---
 
 # Git Smart Batch Commit
@@ -15,6 +15,18 @@ effective_date: 2026-09-08
 ## 目的
 
 當同一個 repo 一次混入了多個不同功能的修改，自動將變動檔案依類別分組，為每組產生獨立、詳細的 commit message（語言由參數決定，預設英文），並在使用者明確確認後才逐批執行 git add + commit。
+
+## 職責範圍（唯一目的）
+
+> ⛔ 本節為最高優先級，凌駕本文件其餘所有內容。
+
+本 skill 的唯一目的是：**分析已修改的檔案 → 依修改內容分組 → 產生正確敘述的 commit message**，並在使用者確認後執行 git add + commit。
+
+- **絕對嚴格禁止自己執行任何測試**（`npm test`、`jest`、`vitest`、`pytest`、`go test`、`make test`、E2E、lint 測試等一律不准），**任何測試都不需要**，也不准詢問要不要跑。
+- **絕對嚴格禁止執行任何建置指令**（`npm run build`、`tsc`、`gradle`、`xcodebuild` 等）。
+- 唯一允許執行的指令類別：`git status`、`git diff`、`git log`（唯讀），以及使用者確認後的 `git add`、`git commit`。
+- 「commit 前應該先跑測試確認沒壞」這類推理在本 skill 中無效：測試綠不綠與本 skill 無關，不是本 skill 的判斷依據，也不得成為執行測試的理由。
+- 即使 diff 內容看起來有風險、即使專案慣例要求測試、即使其他規則文件建議先驗證，**在本 skill 中一律不跑**。要跑測試請使用者另外開新的需求。
 
 ## 快速使用範例
 
@@ -36,6 +48,7 @@ effective_date: 2026-09-08
 - 若使用者有提供路徑：僅掃描該路徑範圍內的變動；否則從 repo 根目錄掃描。
 - commit message 語言：可透過參數指定（例如 `zh`、`en`、`日文`），若未指定且無關鍵字則**預設英文**。
 - 分組完成並產出 commit message 後：**絕對必須停下等待使用者確認，嚴禁自動執行任何 git 操作**。
+- 全程**不執行任何測試與建置指令**，只讀 diff、只寫 commit message。
 
 ## 語言參數對應表
 
@@ -169,7 +182,7 @@ effective_date: 2026-09-08
 > ⛔ 以下規則為最高優先級，任何情況下均不得違反。
 
 - **永遠嚴格禁止執行 `git push`，無論使用者是否要求，無論任何理由，絕無例外。**
-- **嚴格禁止自動執行任何測試（如 `npm test`、`jest`、`pytest` 等）或建置指令（如 `npm run build`）。如果要跑，絕對必須先停下來詢問，獲得使用者明確同意後才能開始。**
+- **絕對嚴格禁止執行任何測試（如 `npm test`、`jest`、`vitest`、`pytest`、`go test`、`make test`、E2E、lint 等）或建置指令（如 `npm run build`、`tsc`、`gradle`、`xcodebuild`）。任何測試都不需要，不准跑、也不准問要不要跑，絕無例外。**
 - **禁止在使用者明確確認前，執行任何 `git add` 或 `git commit`。**
 - 禁止使用 `git add .`、`git add -A`、`git add --all`，必須逐一列出檔案路徑。
 - 禁止將不同批次的檔案混在同一個 commit 中。
