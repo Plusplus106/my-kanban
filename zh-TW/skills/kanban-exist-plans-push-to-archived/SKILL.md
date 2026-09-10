@@ -1,6 +1,6 @@
 ---
 name: kanban-exist-plans-push-to-archived
-description: 接收已建立的 plan 文件（單一、多個、或資料夾），從 3-Progressing 開始連續推進到 8-Archived，並完成 summary。適用於 plan 已經確認、要直接一路推進歸檔的情境。
+description: 接收已建立的 plan 文件（單一、多個、或資料夾），從 3-Progressing 開始連續推進到 8-Archived，並完成 summary。
 version: 2.0.1
 last_updated: 2026-09-03
 effective_date: 2026-09-03

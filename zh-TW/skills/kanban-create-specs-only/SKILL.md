@@ -1,6 +1,6 @@
 ---
 name: kanban-create-specs-only
-description: 不經 Plan 拆解，直接建立 Spec 文件到 1-Specs。預設不自動跨階段，並支援可用數字回答的固定問答流程。
+description: 不經 Plan 拆解，直接建立 Spec 文件到 1-Specs。預設不自動跨階段，支援數字作答。
 version: 1.7.0
 last_updated: 2026-09-03
 effective_date: 2026-09-03

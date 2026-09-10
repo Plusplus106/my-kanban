@@ -1,6 +1,6 @@
 ---
 name: kanban-create-specs-then-push-to-archived
-description: 先建立 Spec 文件（停頓等使用者確認），再拆解成 Plans（停頓等使用者確認），確認後自動連續推進到 8-Archived。適用於需要從頭建立需求文件，並希望每個重要節點都能人工把關的情境。
+description: 先建立 Spec 文件（停頓等使用者確認），再拆解成 Plans（停頓等使用者確認），確認後自動連續推進到 8-Archived。
 version: 1.8.0
 last_updated: 2026-09-03
 effective_date: 2026-09-03

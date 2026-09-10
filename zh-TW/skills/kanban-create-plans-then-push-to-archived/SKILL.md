@@ -1,6 +1,6 @@
 ---
 name: kanban-create-plans-then-push-to-archived
-description: 先建立 Plan 文件並等待使用者確認；確認後自動從 Plan 推進到 Progressing、Testing、Done、Archived。適用於需要先看 plan 再連續執行後續階段的情境。
+description: 先建立 Plan 文件並等待使用者確認；確認後自動從 Plan 推進到 Progressing、Testing、Done、Archived。
 version: 2.0.1
 last_updated: 2026-09-03
 effective_date: 2026-09-03

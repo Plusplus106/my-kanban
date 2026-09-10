@@ -1,6 +1,6 @@
 ---
 name: kanban-create-specs-then-breakdown-to-plans
-description: 依 templates 規範建立 Spec，確認後拆解成 Plans。完成拆解後立即停止等待後續指令。支援可用數字回答的固定問答流程。
+description: 依 templates 規範建立 Spec，確認後拆解成 Plans。完成拆解後立即停止等待後續指令。支援數字作答。
 version: 1.8.0
 last_updated: 2026-09-03
 effective_date: 2026-09-03

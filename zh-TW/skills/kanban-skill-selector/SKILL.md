@@ -1,6 +1,6 @@
 ---
 name: kanban-skill-selector
-description: 高階入口 skill，先讓使用者從多個 kanban skills 中選一個，再進入該 skill 的問答流程。適用於希望先做技能層級選擇，再執行各自流程的情境。
+description: 高階入口 skill，先讓使用者從多個 kanban skills 中選一個，再進入該 skill 的問答流程。
 version: 2.4.0
 last_updated: 2026-09-03
 effective_date: 2026-09-03

@@ -1,6 +1,6 @@
 ---
 name: kanban-archive-only
-description: 接收使用者指定要歸檔的文件或資料夾，優先依 templates/8-Archived 規範完成搬移與 summary 建立。適用於使用者要求指定來源後直接歸檔，完成 summary 就停下等待下一步指令的情境。
+description: 接收使用者指定要歸檔的文件或資料夾，優先依 templates/8-Archived 規範完成搬移與 summary 建立。
 version: 2.1.0
 last_updated: 2026-09-03
 effective_date: 2026-09-03

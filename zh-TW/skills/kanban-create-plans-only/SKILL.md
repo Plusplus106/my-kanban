@@ -1,6 +1,6 @@
 ---
 name: kanban-create-plans-only
-description: 不經 Spec，直接建立 Plan 文件到 2-Plans。預設不自動跨階段，並支援可用數字回答的固定問答流程。
+description: 不經 Spec，直接建立 Plan 文件到 2-Plans。預設不自動跨階段，支援數字作答。
 version: 1.6.0
 last_updated: 2026-05-16
 effective_date: 2026-05-16

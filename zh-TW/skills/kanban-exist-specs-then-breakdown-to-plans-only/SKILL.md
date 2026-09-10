@@ -1,6 +1,6 @@
 ---
 name: kanban-exist-specs-then-breakdown-to-plans-only
-description: 接收已建立的 Spec 文件路徑，依據 Spec 內容拆解成 Plans。拆解完成後立即停止等待後續指令。適用於已有 Spec，只需拆 Plans 後等待確認的情境。
+description: 接收已建立的 Spec 文件路徑，依據 Spec 內容拆解成 Plans。拆解完成後立即停止等待後續指令。
 version: 1.1.1
 last_updated: 2026-09-03
 effective_date: 2026-09-03

@@ -1,6 +1,6 @@
 ---
 name: kanban-create-testing-then-push-to-archived
-description: 從 Testing 階段開始，建立 testing 文件後立即完成測試驗證，再自動推進到 Done 與 Archived。適用於已完成開發、要快速完成驗證與歸檔的情境。
+description: 從 Testing 階段開始，建立 testing 文件後立即完成測試驗證，再自動推進到 Done 與 Archived。
 version: 2.0.1
 last_updated: 2026-09-03
 effective_date: 2026-09-03

@@ -1,6 +1,6 @@
 ---
 name: kanban-create-testing-only
-description: 直接建立 Testing 任務文件到 4-Testing。預設只做測試文件與測試執行，並支援可用數字回答的固定問答流程。
+description: 直接建立 Testing 任務文件到 4-Testing。預設只做測試文件與測試執行，支援數字作答。
 version: 1.6.0
 last_updated: 2026-05-16
 effective_date: 2026-05-16
