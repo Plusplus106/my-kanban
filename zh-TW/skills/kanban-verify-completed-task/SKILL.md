@@ -1,9 +1,9 @@
 ---
 name: kanban-verify-completed-task
 description: 針對由其他 AI 完結的任務，進行至少三次以上的重複檢查。嚴格驗證所有內容是否符合原始需求、測試檔與文件是否已完整更新，並確保所有測試檔已通過執行測試。
-version: 2.2.0
-last_updated: 2026-05-28
-effective_date: 2026-05-28
+version: 2.3.0
+last_updated: 2026-09-25
+effective_date: 2026-09-25
 ---
 
 # Kanban Verify Completed Task
@@ -517,7 +517,7 @@ Read summary 後檢查：
 
 4. 第三回合：執行測試與結果驗證 (Round 3: Test Execution & Validation)
 
-- 實際執行相關的測試指令（需涵蓋修改過的元件、API 或是整個 test suite）。
+- 實際執行與本次修改相關的 targeted 測試範圍（涵蓋所有異動檔及其直接影響的測試）。**若判斷需要執行完整測試範圍，必須先詢問使用者並取得明確同意，不得自行決定執行。**
 - 若專案層級還有 lint 或 type-check 指令，一併執行確保語法正確。
 - 確認終端機輸出結果呈現為完全通過 (All tests passed)。
 - 測試通過後，必須回頭確認測試案例是否覆蓋第一回合建立的每一條需求；若沒有覆蓋，仍視為 verify 未完成。
