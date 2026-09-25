@@ -96,7 +96,7 @@
 
 - `kanban-verify-completed-task`
   - 觸發：`$kanban-verify-completed-task`
-  - 用途：針對已完成任務進行至少三次품質交叉驗證（需求對齊、文件覆蓋、測試執行）。
+  - 用途：針對已完成任務進行至少三次品質交叉驗證（需求對齊、文件覆蓋、測試執行）。
   - 問答：來源 Plans/Spec 路徑、重複次數（預設 3 次）
 
 ### Epic 管理（大主題層）
@@ -119,7 +119,7 @@
 - `git-smart-batch-commit`
   - 觸發：`$git-smart-batch-commit`
   - 觸發（含路徑）：`$git-smart-batch-commit /path/to/repo`
-  - 用途：掃描 repo 中所有變動檔案，依功能自動細拆分組，為每組產生詳細英文 commit message，產出後強制暫停等待使用者確認，確認後才依序執行 git add + commit。絕對嚴格禁止自動 push。
+  - 用途：掃描 repo 中所有變動檔案，依功能自動細拆分組，為每組產生詳細 commit message（預設英文，可用參數切換語言），產出後強制暫停等待使用者確認，確認後才依序執行 git add + commit。絕對嚴格禁止自動 push。
 
 ## 維護原則
 
