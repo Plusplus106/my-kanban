@@ -1,9 +1,9 @@
 ---
 name: kanban-exist-testing-push-to-archived
 description: 接收已建立的 testing 文件（單一、多個、或資料夾），從 4-Testing 開始連續推進到 8-Archived，並完成 summary。
-version: 2.0.1
-last_updated: 2026-09-03
-effective_date: 2026-09-03
+version: 2.1.0
+last_updated: 2026-09-25
+effective_date: 2026-09-25
 ---
 
 # Kanban Exist Testing Push To Archived
@@ -40,7 +40,7 @@ effective_date: 2026-09-03
 >
 > ### 🚨 違規警報
 >
-> 若使用者在歸檔後檢查發現「kanban 文件已歸檔但專案程式碼根本沒動」，視為**最嚴重的違規**，等同欺騙使用者。本 Skill 為防止此類違規，在每個階段都加入「實作證據檢查」（見下方各階段強制規則與「🔴 歸檔前強制輸出檢查清單」Step D-2）。
+> 若使用者在歸檔後檢查發現「kanban 文件已歸檔但專案程式碼根本沒動」，視為**最嚴重的違規**，等同欺騙使用者。本 Skill 為防止此類違規，在每個階段都加入「實作證據檢查」（見下方各階段強制規則與「🔴 歸檔前強制輸出檢查清單」Step C-2）。
 
 ## 路徑基準
 
@@ -436,7 +436,7 @@ Read summary 後檢查：
 - 若任一路徑不存在，立即停止並回報。
 - 若來源其實是 plan 文件，必須先確認這些 plan 文件是否已有共同父層資料夾；若尚未建立，必須先建立父層資料夾，再改由 `3-Progressing` 先執行。無論是單一 plan 文件或多個 plan 文件，都不可省略父層資料夾。
 - 若來源其實是 plan 文件，改由 `3-Progressing` 先執行，再回到 testing 流程。
-- **【強制停頓】以上驗證全部通過後，必須先向使用者回報驗證結果與來源清單，確認完成後才可開始任何測試或搞移動作。未收到使用者確認前，絕對不可執行任何搞移。**
+- **【強制停頓】以上驗證全部通過後，必須先向使用者回報驗證結果與來源清單，確認完成後才可開始任何測試或搬移動作。未收到使用者確認前，絕對不可執行任何搬移。**
 
 3. 建立測試執行清單
 
@@ -511,7 +511,7 @@ Read summary 後檢查：
 - **絕對不得**在 testing 階段只更新 kanban 文件而未修正對應程式碼、測試程式碼與專案文件。
 - **絕對不得**跨過 archived summary 模板。
 - **絕對不得**忽略失敗測試結果直接標記完成。
-- **絕對不得**只搞移文件到 testing/done 而未建立與執行測試程式碼。
+- **絕對不得**只搬移文件到 testing/done 而未建立與執行測試程式碼。
 - 測試未全數通過時，不可推進到 `7-Done` 或 `8-Archived`。
 - **絕對不得**在進入任一階段前，跳過該階段對應的 RULES / template 檔案閱讀（憑印象產出格式）。
 - **絕對不得**將 plan 文件、`0-PLAN_OVERVIEW.md`、spec 文件**平鋪**到 `8-Archived/YYYY-MM-DD-[spec-xxxxx]-feature-name/` 根目錄；**必須**分別放入 `1-Specs/` 與 `done-plans/` 子資料夾。

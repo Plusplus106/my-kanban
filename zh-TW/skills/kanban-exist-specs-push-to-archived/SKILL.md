@@ -1,9 +1,9 @@
 ---
 name: kanban-exist-specs-push-to-archived
 description: 接收已建立的 Spec 文件路徑，依據 Spec 內容拆解成 Plans，等待使用者確認後再連續推進到 8-Archived。
-version: 2.0.1
-last_updated: 2026-09-03
-effective_date: 2026-09-03
+version: 2.1.0
+last_updated: 2026-09-25
+effective_date: 2026-09-25
 ---
 
 # Kanban Exist Specs Push To Archived
@@ -40,7 +40,7 @@ effective_date: 2026-09-03
 >
 > ### 🚨 違規警報
 >
-> 若使用者在歸檔後檢查發現「kanban 文件已歸檔但專案程式碼根本沒動」，視為**最嚴重的違規**，等同欺騙使用者。本 Skill 為防止此類違規，在每個階段都加入「實作證據檢查」（見下方各階段強制規則與「🔴 歸檔前強制輸出檢查清單」Step D-2）。
+> 若使用者在歸檔後檢查發現「kanban 文件已歸檔但專案程式碼根本沒動」，視為**最嚴重的違規**，等同欺騙使用者。本 Skill 為防止此類違規，在每個階段都加入「實作證據檢查」（見下方各階段強制規則與「🔴 歸檔前強制輸出檢查清單」Step C-2）。
 
 ## 路徑基準
 

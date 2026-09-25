@@ -1,9 +1,9 @@
 ---
 name: kanban-create-testing-then-push-to-archived
 description: 從 Testing 階段開始，建立 testing 文件後立即完成測試驗證，再自動推進到 Done 與 Archived。
-version: 2.0.1
-last_updated: 2026-09-03
-effective_date: 2026-09-03
+version: 2.1.0
+last_updated: 2026-09-25
+effective_date: 2026-09-25
 ---
 
 # Kanban Create Testing Then Push To Archived
@@ -40,7 +40,7 @@ effective_date: 2026-09-03
 >
 > ### 🚨 違規警報
 >
-> 若使用者在歸檔後檢查發現「kanban 文件已歸檔但專案程式碼根本沒動」，視為**最嚴重的違規**，等同欺騙使用者。本 Skill 為防止此類違規，在每個階段都加入「實作證據檢查」（見下方各階段強制規則與「🔴 歸檔前強制輸出檢查清單」Step D-2）。
+> 若使用者在歸檔後檢查發現「kanban 文件已歸檔但專案程式碼根本沒動」，視為**最嚴重的違規**，等同欺騙使用者。本 Skill 為防止此類違規，在每個階段都加入「實作證據檢查」（見下方各階段強制規則與「🔴 歸檔前強制輸出檢查清單」Step C-2）。
 
 ## 路徑基準
 
@@ -428,9 +428,9 @@ Read summary 後檢查：
 - 依模板建立 4-Testing 任務文件。
 - **【強制停頓】Testing 文件實際建立完成後，必須立即回報已建立的文件路徑，並停下等待使用者確認。未收到使用者明確回覆確認前，絕對不可進入下方的測試執行步驟。**
 
-  2.5 安全門纜（進入執行前強制檢查）
+  2.5 安全門檻（進入執行前強制檢查）
 
-- 不可只停在文件搞移。
+- 不可只停在文件搬移。
 - 必須直接進入 Testing 品質閘門（測試程式碼 + targeted 測試 + all green + 文件證據）。
 
 3. 通過 Testing 品質閘門後自動連續推進
