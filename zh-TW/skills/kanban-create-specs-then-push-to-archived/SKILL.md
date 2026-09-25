@@ -1,9 +1,9 @@
 ---
 name: kanban-create-specs-then-push-to-archived
 description: 先建立 Spec 文件（停頓等使用者確認），再拆解成 Plans（停頓等使用者確認），確認後自動連續推進到 8-Archived。
-version: 1.8.0
-last_updated: 2026-09-03
-effective_date: 2026-09-03
+version: 1.9.0
+last_updated: 2026-09-25
+effective_date: 2026-09-25
 ---
 
 # Kanban Create Specs Then Push To Archived
@@ -40,7 +40,7 @@ effective_date: 2026-09-03
 >
 > ### 🚨 違規警報
 >
-> 若使用者在歸檔後檢查發現「kanban 文件已歸檔但專案程式碼根本沒動」，視為**最嚴重的違規**，等同欺騙使用者。本 Skill 為防止此類違規，在每個階段都加入「實作證據檢查」（見下方各階段強制規則與「🔴 歸檔前強制輸出檢查清單」Step D-2）。
+> 若使用者在歸檔後檢查發現「kanban 文件已歸檔但專案程式碼根本沒動」，視為**最嚴重的違規**，等同欺騙使用者。本 Skill 為防止此類違規，在每個階段都加入「實作證據檢查」（見下方各階段強制規則與「🔴 歸檔前強制輸出檢查清單」Step C-2）。
 
 ## 路徑基準
 
@@ -495,72 +495,11 @@ Read summary 後檢查：
 - **強制規則（歸檔前狀態檢查）**：進入 `8-Archived` 前，必須執行「歸檔前的強制狀態檢查」驗證指令，確認所有準備歸檔的文件「狀態」欄位皆為「已完成 (Done)」。任一文件不是 Done，必須先回到對應階段補完流程，禁止帶著「處理中 / 測試中」狀態的文件進入歸檔。
 - 測試失敗時，轉入 `5-Re-testing` 修正後再回 `4-Testing`。若 re-testing 後仍失敗，停止並回報，不可強行推進。
 
-6. 歸檔與 summary（強制依照 `templates/8-Archived/ARCHIVED_RULES.md`）
+6. 歸檔與 summary
 
-- **【強制前置】進入 8-Archived 前，必須先 Read `templates/8-Archived/ARCHIVED_RULES.md` 與 `templates/8-Archived/.archived-summary-template.md`。禁止憑印象建立歸檔結構。**
-
-- **歸檔根資料夾命名（強制）：**
-  - 有 Spec 流程：`8-Archived/YYYY-MM-DD-[spec-xxxxx]-feature-name/`
-  - 無 Spec 流程：`8-Archived/YYYY-MM-DD-[no-spec]-feature-name/`
-  - **禁止**使用 `[plan-yyyyy]` 作為歸檔根資料夾識別。
-
-- **歸檔根資料夾內必須建立的子結構（強制，缺一不可）：**
-
-  ```text
-  8-Archived/YYYY-MM-DD-[spec-xxxxx]-feature-name/
-  ├── 1-Specs/
-  │   ├── [spec-xxxxx]-IDEA_DESCRIPTION.md
-  │   ├── [spec-xxxxx]-CLEANUP_AND_INTEGRATION.md
-  │   └── ...（其他 spec 文件）
-  ├── done-plans/
-  │   ├── 0-PLAN_OVERVIEW.md（如有）
-  │   ├── YYYY-MM-DD-[spec-xxxxx]-N-優先級-[plan-yyyyy]-類別-描述.md
-  │   └── ...（其他 plan 文件）
-  └── [spec-xxxxx]-summary.md
-  ```
-
-  **禁止行為：**
-  - ❌ 把 plan 文件、`0-PLAN_OVERVIEW.md`、spec 文件**平鋪**到歸檔根目錄
-  - ❌ 不建立 `1-Specs/` 子資料夾就直接搬 spec 文件
-  - ❌ 不建立 `done-plans/` 子資料夾就直接搬 plan 文件
-  - ❌ 使用 `done-tasks/` 舊名稱（必須是 `done-plans/`）
-
-- **summary 檔名（強制，不得自由發揮）：**
-  - 有 Spec：`[spec-xxxxx]-summary.md`
-  - 無 Spec：`[no-spec]-summary.md`
-  - **禁止**使用以下變體檔名：
-    - ❌ `[spec-xxxxx]-ARCHIVED_SUMMARY.md`
-    - ❌ `[spec-xxxxx]-SUMMARY.md`
-    - ❌ `ARCHIVED_SUMMARY.md`
-    - ❌ `summary.md`
-    - ❌ 任何其他大小寫或前後綴變體
-  - summary 內容必須使用 `templates/8-Archived/.archived-summary-template.md`。
-  - 欄位不足時填 placeholder，不可省略章節。
-
-- **歸檔完成後必須清理的來源資料夾（強制，逐一確認無殘留）：**
-
-  歸檔搬移完成後，**必須**檢查以下 7 個來源階段，確認該批次 spec 對應的資料夾與檔案已全部清空或刪除：
-
-  1. ✅ `1-Specs/YYYY-MM-DD-[spec-xxxxx]-feature-name/` → 已搬到 `8-Archived/.../1-Specs/`，原資料夾必須刪除
-  2. ✅ `2-Plans/YYYY-MM-DD-[spec-xxxxx]-feature-name/` → 必須刪除（內容已歸檔）
-  3. ✅ `3-Progressing/YYYY-MM-DD-[spec-xxxxx]-feature-name/` → 必須刪除（內容已歸檔）
-  4. ✅ `4-Testing/YYYY-MM-DD-[spec-xxxxx]-feature-name/` → 必須刪除（內容已歸檔）
-  5. ✅ `5-Re-testing/YYYY-MM-DD-[spec-xxxxx]-feature-name/`（如有）→ 必須刪除
-  6. ✅ `6-On-hold/YYYY-MM-DD-[spec-xxxxx]-feature-name/`（如有）→ 必須刪除
-  7. ✅ `7-Done/YYYY-MM-DD-[spec-xxxxx]-feature-name/` → 已搬到 `8-Archived/.../done-plans/`，原資料夾必須刪除
-
-  另需清空 `4-Testing/temp/*` 測試暫存資料（保留資料夾結構）。
-
-  **驗證指令（強制執行）：**
-
-  ```bash
-  find <project>/{1-Specs,2-Plans,3-Progressing,4-Testing,5-Re-testing,6-On-hold,7-Done} \
-    -type f -name "*[spec-xxxxx]*" 2>/dev/null
-  ```
-
-  此指令的結果必須為空，才代表清理完成。若有殘留，必須立即清理後再次驗證。
-
-- **最終結構驗證（強制）：** 歸檔完成後，再次執行 `ls -R 8-Archived/YYYY-MM-DD-[spec-xxxxx]-feature-name/`，比對是否符合上方「強制子結構」範例。不一致必須立即修正。
+- 依本文件「🔴 歸檔前強制輸出檢查清單」Step A～G 完成歸檔；歸檔結構、summary 檔名與來源清理，都以該清單及 `templates/8-Archived/ARCHIVED_RULES.md`（含步驟 8 的 `4-Testing/temp/*` 清理）為準。
+- 本 skill 一律先建立 Spec，歸檔根資料夾固定為 `8-Archived/YYYY-MM-DD-[spec-xxxxx]-feature-name/`，summary 檔名固定為 `[spec-xxxxx]-summary.md`。
+- summary 內容必須使用 `templates/8-Archived/.archived-summary-template.md`，欄位不足時填 placeholder，不可省略章節。
 
 7. 停止點（強制）
 
