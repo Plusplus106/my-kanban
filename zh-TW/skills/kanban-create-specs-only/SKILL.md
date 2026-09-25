@@ -1,9 +1,9 @@
 ---
 name: kanban-create-specs-only
 description: 不經 Plan 拆解，直接建立 Spec 文件到 1-Specs。預設不自動跨階段，支援數字作答。
-version: 1.7.0
-last_updated: 2026-09-03
-effective_date: 2026-09-03
+version: 1.7.1
+last_updated: 2026-09-25
+effective_date: 2026-09-25
 ---
 
 # Kanban Create Specs Only
@@ -112,7 +112,7 @@ effective_date: 2026-09-03
 
 4. 讓使用者確認 Spec 文件內容
 
-- **【絕對強制】未收到使用者明確回覆確認（例如回覆「同意」、「確認」、「沒問題」等明確內容）前，一律不得進行任何後續動作。這是網遡屢是不可越越的絕對規定。**
+- **【絕對強制】未收到使用者明確回覆確認（例如回覆「同意」、「確認」、「沒問題」等明確內容）前，一律不得進行任何後續動作。這是不可逾越的絕對規定。**
 
 5. 完成後停止
 
