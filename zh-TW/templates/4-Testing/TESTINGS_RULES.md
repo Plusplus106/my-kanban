@@ -13,7 +13,7 @@
 > - 📋 檔案移動規則
 > - 📋 任務卡片必要欄位規範
 > - ⭐ 並行測試處理原則
-> - ⭐ **Lint 檢查必須通過** (所有測試程式碼必須通過 ESLint/TSLint/Pylance 檢查)
+> - ⭐ **Lint 檢查必須通過** (所有測試程式碼必須通過 ESLint/Pylance 檢查)
 > - 🔖 遵循共通規範 ([COMMON_CONVENTIONS.md](../COMMON_CONVENTIONS.md))
 
 ---
