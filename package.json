@@ -2,17 +2,32 @@
   "name": "my-kanban",
   "version": "2.15.0",
   "description": "AI-Collaborative Kanban Task Management System designed for multi-AI tool collaboration with parallel execution capabilities",
-  "main": "index.js",
+  "main": "bin/my-kanban.js",
+  "bin": {
+    "my-kanban": "./bin/my-kanban.js"
+  },
+  "files": [
+    "bin/",
+    "zh-TW/",
+    "README.md",
+    "KANBAN_INSTRUCTION.md",
+    "KANBAN_USAGE_GUIDE.md"
+  ],
   "scripts": {
-    "init-project-kanban": "chmod +x scripts/init-project-kanban.sh && scripts/init-project-kanban.sh",
-    "gen-prompt": "chmod +x scripts/gen-prompt.sh && scripts/gen-prompt.sh",
-    "gen-idea-prompt": "chmod +x scripts/gen-idea-to-plan-prompt.sh && scripts/gen-idea-to-plan-prompt.sh",
-    "gen-docs-prompt": "chmod +x scripts/gen-docs-to-todo-prompt.sh && scripts/gen-docs-to-todo-prompt.sh",
-    "gen-todo-prompt": "chmod +x scripts/gen-todo-to-progressing-prompt.sh && scripts/gen-todo-to-progressing-prompt.sh",
-    "gen-testing-prompt": "chmod +x scripts/gen-progressing-to-testing-prompt.sh && scripts/gen-progressing-to-testing-prompt.sh",
-    "gen-done-prompt": "chmod +x scripts/gen-testing-to-done-prompt.sh && scripts/gen-testing-to-done-prompt.sh",
-    "gen-archived-prompt": "chmod +x scripts/gen-done-to-archived-prompt.sh && scripts/gen-done-to-archived-prompt.sh",
-    "prepare": "husky"
+    "install-skills": "node ./bin/my-kanban.js install",
+    "uninstall-skills": "node ./bin/my-kanban.js uninstall",
+    "list-skills": "node ./bin/my-kanban.js list",
+    "init": "node ./bin/my-kanban.js init",
+    "init-project-kanban": "chmod +x zh-TW/scripts/init-project-kanban.sh && zh-TW/scripts/init-project-kanban.sh",
+    "gen": "chmod +x zh-TW/scripts/gen-prompt.sh && zh-TW/scripts/gen-prompt.sh",
+    "gen-prompt": "chmod +x zh-TW/scripts/gen-prompt.sh && zh-TW/scripts/gen-prompt.sh",
+    "gen-idea-prompt": "chmod +x zh-TW/scripts/gen-idea-to-spec-prompt.sh && zh-TW/scripts/gen-idea-to-spec-prompt.sh",
+    "gen-docs-prompt": "chmod +x zh-TW/scripts/gen-spec-to-plan-prompt.sh && zh-TW/scripts/gen-spec-to-plan-prompt.sh",
+    "gen-todo-prompt": "chmod +x zh-TW/scripts/gen-plan-to-progressing-prompt.sh && zh-TW/scripts/gen-plan-to-progressing-prompt.sh",
+    "gen-testing-prompt": "chmod +x zh-TW/scripts/gen-progressing-to-testing-prompt.sh && zh-TW/scripts/gen-progressing-to-testing-prompt.sh",
+    "gen-done-prompt": "chmod +x zh-TW/scripts/gen-testing-to-done-prompt.sh && zh-TW/scripts/gen-testing-to-done-prompt.sh",
+    "gen-archived-prompt": "chmod +x zh-TW/scripts/gen-done-to-archived-prompt.sh && zh-TW/scripts/gen-done-to-archived-prompt.sh",
+    "prepare": "husky || true"
   },
   "keywords": [
     "kanban",
