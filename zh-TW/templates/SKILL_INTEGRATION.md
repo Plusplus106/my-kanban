@@ -12,9 +12,10 @@
 
 ## 路徑解讀規則（語系可配置）
 
-本文件中的路徑（例如 `templates/...`、`scripts/...`、`promps/...`、`skills/...`）皆以「目前語系內容根目錄」為相對基準。
+本文件中的路徑（例如 `templates/...`、`scripts/...`、`promps/...`、`skills/...`）優先以各 `SKILL.md` 所在資料夾（如 `<skill-dir>/templates/`）或「目前語系內容根目錄」為相對基準。
 
 - 不強制綁定 repo 根目錄固定路徑。
+- 透過 `npx github:Plusplus106/my-kanban install` 安裝後，每個 skill 資料夾皆內嵌 `templates/`，可跨任意專案獨立運作。
 - 可直接套用到不同語系版本（如 `zh-TW/`、`ja/`、`en/`）。
 
 ---

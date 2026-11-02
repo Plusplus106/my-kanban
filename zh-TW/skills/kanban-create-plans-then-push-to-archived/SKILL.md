@@ -44,7 +44,7 @@ effective_date: 2026-09-25
 
 ## 路徑基準
 
-本文件中提到的 `templates/`、`scripts/`、`promps/`、`skills/`，皆以目前語系內容根目錄為相對基準（例如 `zh-TW/`），不綁定 repo 根目錄固定路徑。
+本文件中提到的 `templates/`、`scripts/`、`promps/`、`skills/`，優先以本 `SKILL.md` 所在目錄（如 `./templates/`）或目前語系內容根目錄（例如 `zh-TW/`）為相對基準，不綁定 repo 根目錄固定路徑。
 
 ## 目的
 

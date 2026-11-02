@@ -4,7 +4,24 @@
 
 ## 路徑基準
 
-本資料夾與對應文件中提到的 `templates/`、`scripts/`、`promps/`、`skills/`，皆以目前語系內容根目錄為相對基準（例如 `zh-TW/`），不綁定 repo 根目錄固定路徑。
+本資料夾與對應文件中提到的 `templates/`、`scripts/`、`promps/`、`skills/`，優先以各 `SKILL.md` 所在目錄（如 `./templates/`）或目前語系內容根目錄（例如 `zh-TW/`）為相對基準，不綁定 repo 根目錄固定路徑。
+
+## 終端機一鍵安裝（Claude / GPT / Gemini 通用）
+
+```bash
+# 免預先安裝，直接透過 npx 從 GitHub 一鍵安裝至 Claude、GPT (Codex)、Gemini 全域目錄
+npx github:Plusplus106/my-kanban install
+
+# 或使用 npm / yarn 全域安裝
+npm install -g my-kanban && my-kanban install
+yarn global add my-kanban && my-kanban install
+
+# 僅安裝至當前專案目錄（.claude/skills, .codex/skills, .agents/skills）
+npx github:Plusplus106/my-kanban install --project
+
+# 僅安裝至指定 AI 工具（claude, gpt, gemini, all）
+npx github:Plusplus106/my-kanban install --targets claude,gemini
+```
 
 ## 使用方式
 
