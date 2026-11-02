@@ -6,7 +6,14 @@
 
 <a id="zh-tw"></a>
 
-# AI協作任務看板管理系統
+# AI Skill - 任務看板管理
+
+## 📦 關於本專案（Repo 核心內容）
+
+本儲存庫（Repository）主要提供專為 **AI 開發代理（AI Agents）設計的任務看板管理 Skills（`SKILL.md`）與集中式規範模板（`templates/`）**。
+可透過終端機指令一鍵安裝至 **Claude (Claude Code)**、**GPT (OpenAI Codex)** 與 **Gemini (Antigravity / Gemini CLI)**，讓 AI 直接具備從需求規格（Specs）、實作計畫拆解（Plans）、開發（Progressing）、測試品質閘門（Testing）到完成歸檔（Done / Archived）的完整自動化與互動式工作流程能力。
+
+透過統一的看板文件結構與狀態追蹤規範，使用者可以**跨不同 AI 工具協同完成同一項工作任務**——不論是由不同 AI 各自認領獨立計畫同步並行開發，或是在單一 AI 額度耗盡、切換視窗時由另一個 AI 無縫接手續做，都能保持進度與上下文完全一致。
 
 ## 中文版
 
@@ -161,7 +168,14 @@ my-kanban/
 
 <a id="en"></a>
 
-# AI Collaboration Kanban System
+# AI Skill - Kanban Task Management
+
+## 📦 About This Repository (Primary Content)
+
+This repository primarily provides **AI Agent Skills (`SKILL.md`) and centralized rule templates (`templates/`) for Kanban task management**.
+With a single terminal command, these skills can be installed directly into **Claude (Claude Code)**, **GPT (OpenAI Codex)**, and **Gemini (Antigravity / Gemini CLI)**, equipping AI agents with end-to-end interactive and automated workflows covering requirement specifications (Specs), parallel plan decomposition (Plans), implementation (Progressing), mandatory testing quality gates (Testing), and completion archiving (Done / Archived).
+
+Through unified Kanban document structures and state-tracking conventions, users can **collaborate across different AI tools to complete the same task** — whether assigning independent plans to multiple AI agents for parallel development, or seamlessly handing off work to another AI when switching sessions or hitting usage limits, while keeping progress and context fully synchronized.
 
 ## EN
 
@@ -300,7 +314,14 @@ my-kanban/
 
 <a id="jp"></a>
 
-# AI協調タスク・カンバン管理システム
+# AI Skill - タスク・カンバン管理
+
+## 📦 本リポジトリについて（主な内容）
+
+本リポジトリの主な内容は、**AI 開発エージェント（AI Agents）向けのタスク・カンバン管理 Skills（`SKILL.md`）および共通ルール・テンプレート集（`templates/`）**です。
+ターミナルからワンコマンドで **Claude (Claude Code)**、**GPT (OpenAI Codex)**、**Gemini (Antigravity / Gemini CLI)** にインストールでき、仕様策定（Specs）、並列計画分解（Plans）、実装（Progressing）、必須テスト品質ゲート（Testing）、完了・アーカイブ（Done / Archived）までの一貫した AI ワークフローを提供します。
+
+統一されたカンバン文書構造と状態追跡ルールにより、ユーザーは**異なる AI ツールを連携させて同一のタスクを協働で完遂**できます。複数の AI に独立した計画を割り当てて並列開発を進める場合でも、利用枠の上限やセッション切り替え時に別の AI へシームレスに引き継ぐ場合でも、進捗とコンテキストを完全に一致させることが可能です。
 
 ## 日本語
 
