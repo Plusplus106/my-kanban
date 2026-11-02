@@ -24,16 +24,41 @@
 - 詳細參數請參考：`SKILL_INTEGRATION.md`（位於目前語系內容根目錄下的 `templates/`）
 - 通用禁止與允許規則請參考：`COMMON_CONVENTIONS.md`（位於目前語系內容根目錄下的 `templates/`）
 
-### 1. 建立新專案
+### 0. 終端機安裝 Kanban Skills（Claude / GPT / Gemini 通用）
 
-**方法 1: 使用 npm script（推薦）**
+透過一行終端機指令，即可將所有 Kanban Skills（含內嵌 `templates/` 規範與模板）一次裝入 **Claude (Claude Code)**、**GPT (OpenAI Codex)** 與 **Gemini (Antigravity / Gemini CLI)**：
 
 ```bash
-# 建立新專案
+# 免預先安裝，直接透過 npx 從 GitHub 一鍵安裝（全域）
+npx github:Plusplus106/my-kanban install
+
+# 或透過 npm / yarn 全域安裝 CLI 後執行
+npm install -g my-kanban && my-kanban install
+yarn global add my-kanban && my-kanban install
+
+# 只安裝到當前專案目錄（.claude/skills, .codex/skills, .agents/skills）
+npx github:Plusplus106/my-kanban install --project
+
+# 只安裝給指定工具（可選 claude, gpt, gemini, all）
+npx github:Plusplus106/my-kanban install --targets claude,gemini
+```
+
+安裝完成後，在任意 AI 工具對話中輸入 `$kanban-skill-selector` 即可啟動入口選單。
+
+### 1. 建立新專案
+
+**方法 1: 使用 CLI 或 npm / yarn script（推薦）**
+
+```bash
+# 透過 npx 直接建立新專案
+npx github:Plusplus106/my-kanban init <專案名稱>
+
+# 或在 repo 內使用 npm / yarn
 npm run init <專案名稱>
+yarn init <專案名稱>
 
 # 範例
-npm run init my-project-a
+npx github:Plusplus106/my-kanban init my-project-a
 ```
 
 執行後會自動建立完整的資料夾結構：
@@ -209,8 +234,8 @@ mkdir -p [專案名稱]/1-Specs/[專案名稱]
 
 ---
 
-**版本:** 5.2 (Testing Quality Gate Aligned)
-**最後更新:** 2026-02-20
+**版本:** 5.3 (Multi-AI Terminal CLI Installer)
+**最後更新:** 2026-11-02
 
 ---
 
@@ -236,16 +261,41 @@ mkdir -p [專案名稱]/1-Specs/[專案名稱]
 - Detailed parameters: `SKILL_INTEGRATION.md` (under current locale content root `templates/`).
 - Shared allow/deny rules: `COMMON_CONVENTIONS.md` (under current locale content root `templates/`).
 
-### 1. Create a New Project
+### 0. Install Kanban Skills via Terminal (Claude / GPT / Gemini)
 
-Method 1: npm script (recommended)
+With a single terminal command, install all Kanban skills (with embedded `templates/` rules and templates) simultaneously into **Claude (Claude Code)**, **GPT (OpenAI Codex)**, and **Gemini (Antigravity / Gemini CLI)**:
 
 ```bash
-# Create a new project
+# Zero-install one-command setup via npx from GitHub (global)
+npx github:Plusplus106/my-kanban install
+
+# Or install the CLI globally via npm / yarn
+npm install -g my-kanban && my-kanban install
+yarn global add my-kanban && my-kanban install
+
+# Install into current project workspace only (.claude/skills, .codex/skills, .agents/skills)
+npx github:Plusplus106/my-kanban install --project
+
+# Install only for selected AI tools (claude, gpt, gemini, all)
+npx github:Plusplus106/my-kanban install --targets claude,gemini
+```
+
+After installation, type `$kanban-skill-selector` in any AI tool chat to launch the entry menu.
+
+### 1. Create a New Project
+
+Method 1: CLI or npm / yarn script (recommended)
+
+```bash
+# Create a new project directly via npx
+npx github:Plusplus106/my-kanban init <project-name>
+
+# Or inside the repo using npm / yarn
 npm run init <project-name>
+yarn init <project-name>
 
 # Example
-npm run init my-project-a
+npx github:Plusplus106/my-kanban init my-project-a
 ```
 
 This command creates the full folder structure:
@@ -420,8 +470,8 @@ Implement user registration API endpoint including:
 - Rename old `1-Plans` to `1-Specs` and update document IDs to `[spec-xxxxx]`.
 - Rename old `2-Tasks` to `2-Plans`; regenerating plans is recommended to match the new format.
 
-**Version:** 5.2 (Testing Quality Gate Aligned)
-**Last Updated:** 2026-02-20
+**Version:** 5.3 (Multi-AI Terminal CLI Installer)
+**Last Updated:** 2026-11-02
 
 ---
 
@@ -447,16 +497,41 @@ Implement user registration API endpoint including:
 - 詳細パラメータ: `SKILL_INTEGRATION.md`（現在の言語コンテンツルート `templates/` 配下）。
 - 共通許可/禁止ルール: `COMMON_CONVENTIONS.md`（現在の言語コンテンツルート `templates/` 配下）。
 
-### 1. 新規プロジェクト作成
+### 0. ターミナルから Kanban Skills をインストール（Claude / GPT / Gemini 共通）
 
-方法 1: npm script（推奨）
+1 行のターミナルコマンドで、すべての Kanban Skills（`templates/` 規約・テンプレート同梱）を **Claude (Claude Code)**、**GPT (OpenAI Codex)**、**Gemini (Antigravity / Gemini CLI)** へ同時にインストールできます:
 
 ```bash
-# 新規プロジェクト作成
+# npx で GitHub から直接ワンコマンドインストール（グローバル）
+npx github:Plusplus106/my-kanban install
+
+# または npm / yarn で CLI をグローバルインストールして実行
+npm install -g my-kanban && my-kanban install
+yarn global add my-kanban && my-kanban install
+
+# 現在のプロジェクトディレクトリのみにインストール（.claude/skills, .codex/skills, .agents/skills）
+npx github:Plusplus106/my-kanban install --project
+
+# 指定した AI ツールのみにインストール（claude, gpt, gemini, all）
+npx github:Plusplus106/my-kanban install --targets claude,gemini
+```
+
+インストール完了後、任意の AI ツールのチャットで `$kanban-skill-selector` を入力するとメニューが起動します。
+
+### 1. 新規プロジェクト作成
+
+方法 1: CLI または npm / yarn script（推奨）
+
+```bash
+# npx で直接新規プロジェクト作成
+npx github:Plusplus106/my-kanban init <project-name>
+
+# またはリポジトリ内で npm / yarn を使用
 npm run init <project-name>
+yarn init <project-name>
 
 # 例
-npm run init my-project-a
+npx github:Plusplus106/my-kanban init my-project-a
 ```
 
 実行後、以下の構造が自動作成されます:
@@ -631,5 +706,5 @@ Stage 5: プロジェクトアーカイブ
 - 旧 `1-Plans` を `1-Specs` へリネームし、文書 ID を `[spec-xxxxx]` 形式に更新。
 - 旧 `2-Tasks` を `2-Plans` へリネーム可能。新形式に合わせるため再生成を推奨。
 
-**Version:** 5.2 (Testing Quality Gate Aligned)
-**Last Updated:** 2026-02-20
+**Version:** 5.3 (Multi-AI Terminal CLI Installer)
+**Last Updated:** 2026-11-02

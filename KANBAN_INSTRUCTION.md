@@ -311,16 +311,21 @@ d) **⭐ 阻塞性計畫的優先級評估**：會阻塞別人的計畫，無論
 
 ---
 
-## 11. 自動化模式整合（工具可替換）
+## 11. 自動化模式整合與跨 AI 終端機安裝（工具可替換）
 
 - 本系統採用「共通規範 + 整合文件」設計，避免和單一 skill 寫死綁定。
+- **跨 AI 終端機一鍵安裝**：透過 `bin/my-kanban.js`（執行 `npx github:Plusplus106/my-kanban install`），可用同一行指令將所有 skills 連同內嵌的 `templates/` 同步安裝至：
+  - **Claude (Claude Code)**：`~/.claude/skills/`（全域）或 `.claude/skills/`（專案）
+  - **GPT (OpenAI Codex)**：`~/.codex/skills/`（全域）或 `.codex/skills/`（專案）
+  - **Gemini (Antigravity / Gemini CLI)**：`~/.gemini/config/skills/`、`~/.gemini/skills/`（全域）或 `.agents/skills/`（專案）
+- **自包含模板讀取**：每個已安裝的 skill 資料夾內皆包含 `templates/`，AI 工具可直接從該 skill 所在目錄下的 `./templates/` 或目前語系內容根目錄讀取規範與模板。
 - 若未來更換自動化工具，優先更新 `SKILL_INTEGRATION.md`（位於目前語系內容根目錄下的 `templates/`）。
 - `COMMON_CONVENTIONS.md`（位於目前語系內容根目錄下的 `templates/`）保持工具中立，只維持長期不變規則。
 
 ---
 
-**版本:** 5.2 (Testing Quality Gate Aligned)
-**最後更新:** 2026-02-20
+**版本:** 5.3 (Multi-AI Terminal CLI Installer)
+**最後更新:** 2026-11-02
 
 ---
 
@@ -579,14 +584,19 @@ Additional fields by stage:
 - **Testing**: `test start time`, `test owner AI`, `test progress`, `test results`, `coverage`
 - **Done**: `completion time`
 
-## 11. Automation Mode Integration (Replaceable)
+## 11. Automation Mode Integration & Multi-AI Terminal Installation (Replaceable)
 
 - This system follows a "shared conventions + integration docs" design to avoid hard-binding to a single skill.
+- **One-Command Multi-AI Terminal Installation**: via `bin/my-kanban.js` (`npx github:Plusplus106/my-kanban install`), a single command installs all skills (with embedded `templates/`) simultaneously to:
+  - **Claude (Claude Code)**: `~/.claude/skills/` (global) or `.claude/skills/` (project)
+  - **GPT (OpenAI Codex)**: `~/.codex/skills/` (global) or `.codex/skills/` (project)
+  - **Gemini (Antigravity / Gemini CLI)**: `~/.gemini/config/skills/`, `~/.gemini/skills/` (global) or `.agents/skills/` (project)
+- **Self-Contained Template Resolution**: each installed skill folder includes `templates/`, allowing AI tools to read rules and templates directly from `./templates/` relative to `SKILL.md` or from the current locale content root.
 - If automation tooling changes, update `SKILL_INTEGRATION.md` first (under current locale content root `templates/`).
 - Keep `COMMON_CONVENTIONS.md` tool-neutral and stable for long-term rules.
 
-**Version:** 5.2 (Testing Quality Gate Aligned)
-**Last Updated:** 2026-02-20
+**Version:** 5.3 (Multi-AI Terminal CLI Installer)
+**Last Updated:** 2026-11-02
 
 ---
 
@@ -845,12 +855,16 @@ Epic（テーマ層）補足:
 - **Testing**: `テスト開始時刻`, `テスト担当 AI`, `進捗`, `結果`, `カバレッジ`
 - **Done**: `完了時刻`
 
-## 11. 自動化モード統合（置換可能）
+## 11. 自動化モード統合とマルチ AI ターミナルインストール（置換可能）
 
 - 本システムは「共通規範 + 統合文書」設計で、単一 skill への固定依存を避ける。
+- **マルチ AI ワンコマンドインストール**: `bin/my-kanban.js`（`npx github:Plusplus106/my-kanban install`）により、単一コマンドで全 skills（`templates/` 同梱）を以下の全 AI ツールへ同時にインストール可能:
+  - **Claude (Claude Code)**: `~/.claude/skills/`（グローバル）または `.claude/skills/`（プロジェクト）
+  - **GPT (OpenAI Codex)**: `~/.codex/skills/`（グローバル）または `.codex/skills/`（プロジェクト）
+  - **Gemini (Antigravity / Gemini CLI)**: `~/.gemini/config/skills/`, `~/.gemini/skills/`（グローバル）または `.agents/skills/`（プロジェクト）
+- **自己完結型テンプレート参照**: インストールされた各 skill フォルダ内に `templates/` が含まれるため、AI ツールは `SKILL.md` 相対の `./templates/` または現在の言語コンテンツルートから規約とテンプレートを読み取れる。
 - 自動化ツール変更時は、まず `SKILL_INTEGRATION.md`（現在の言語コンテンツルート `templates/` 配下）を更新する。
 - `COMMON_CONVENTIONS.md` はツール中立で長期不変ルールを維持する。
 
-**Version:** 5.2 (Testing Quality Gate Aligned)
-**Last Updated:** 2026-02-20
-0
+**Version:** 5.3 (Multi-AI Terminal CLI Installer)
+**Last Updated:** 2026-11-02

@@ -44,11 +44,37 @@
 
 ---
 
+### ⚡ 終端機一鍵安裝 Skills（Claude / GPT / Gemini 通用）
+
+透過單一終端機指令，即可將所有 Kanban Skills（含內嵌 `templates/` 規範與模板）同時安裝至 **Claude (Claude Code)**、**GPT (OpenAI Codex)** 與 **Gemini (Antigravity / Gemini CLI)**：
+
+```bash
+# 方式 1：免預先安裝，直接透過 npx 從 GitHub 一鍵安裝（同時裝入 Claude、GPT、Gemini 全域目錄）
+npx github:Plusplus106/my-kanban install
+
+# 方式 2：全域安裝 CLI 後執行（提供 npm 與 yarn 兩種指令）
+npm install -g my-kanban && my-kanban install
+yarn global add my-kanban && my-kanban install
+
+# 方式 3：相容開源通用 skills CLI
+npx skills add Plusplus106/my-kanban -g -a claude-code -a codex -a antigravity -a gemini-cli
+```
+
+**常用 CLI 參數：**
+
+- `npx github:Plusplus106/my-kanban install --project`：安裝至當前專案目錄（`.claude/skills/`、`.codex/skills/`、`.agents/skills/`）
+- `npx github:Plusplus106/my-kanban install --targets claude,gemini`：只安裝至指定 AI 工具（可選 `claude`、`gpt`、`gemini`、`all`）
+- `npx github:Plusplus106/my-kanban install --skill kanban-skill-selector`：只安裝指定 skill
+- `npx github:Plusplus106/my-kanban list`：列出所有可用 skills
+- `npx github:Plusplus106/my-kanban uninstall`：一鍵移除已安裝的 skills
+
+---
+
 ### 🛠️ 專案初始化與靈活運用
 
-**1. 標準流程 (透過 Script 建立):**
+**1. 標準流程 (透過 CLI 或 Script 建立):**
 
-- 使用 `npm run init <專案名稱>` 快速建立完整的專案資料夾結構。
+- 使用 `npx github:Plusplus106/my-kanban init <專案名稱>`、`npm run init <專案名稱>` 或 `yarn init <專案名稱>` 快速建立完整的專案資料夾結構。
 - **完整流程:**
   `1-Specs/` (規格) → `2-Plans/` (拆解) → `3-Progressing/` (開發) → `4-Testing/` (測試) → `7-Done/` (完成) → `8-Archived/` (歸檔)
 
@@ -86,6 +112,8 @@ my-kanban/
 ├── KANBAN_INSTRUCTION.md           # 核心原則與參考文件（必讀）
 ├── KANBAN_USAGE_GUIDE.md           # 完整使用操作指南
 ├── package.json                    # NPM 專案設定檔
+├── bin/
+│   └── my-kanban.js                # 跨 AI 工具 CLI 一鍵安裝器
 │
 ├── <語系內容根目錄>/               # 例如 zh-TW/、ja-JP/、en-US/
 │   ├── scripts/                    # 自動化腳本
@@ -97,7 +125,7 @@ my-kanban/
 │   │   ├── SKILL_INTEGRATION.md
 │   │   └── ...
 │   ├── promps/                     # AI 提示詞庫（按階段）
-│   └── skills/                     # 自訂 skills
+│   └── skills/                     # 自訂 skills（內含 templates 連結）
 ```
 
 ## 📚 相關文件導引
@@ -126,8 +154,8 @@ my-kanban/
 
 ---
 
-**版本:** 5.2 (Testing Quality Gate Aligned)
-**最後更新:** 2026-02-20
+**版本:** 5.3 (Multi-AI Terminal CLI Installer)
+**最後更新:** 2026-11-02
 
 ---
 
@@ -170,11 +198,35 @@ Key capabilities:
 - Handoff across AI sessions/windows
 - Centralized templates and conventions
 
+### One-Command Terminal Skill Installation (Claude / GPT / Gemini)
+
+Install all Kanban skills (with embedded `templates/` rules and templates) simultaneously across **Claude (Claude Code)**, **GPT (OpenAI Codex)**, and **Gemini (Antigravity / Gemini CLI)** with a single terminal command:
+
+```bash
+# Option 1: Zero-install one-command setup via npx from GitHub (installs to Claude, GPT, and Gemini globally)
+npx github:Plusplus106/my-kanban install
+
+# Option 2: Global CLI installation (both npm and yarn supported)
+npm install -g my-kanban && my-kanban install
+yarn global add my-kanban && my-kanban install
+
+# Option 3: Compatible with the open-source skills CLI
+npx skills add Plusplus106/my-kanban -g -a claude-code -a codex -a antigravity -a gemini-cli
+```
+
+Common CLI options:
+
+- `npx github:Plusplus106/my-kanban install --project`: Install into current project workspace (`.claude/skills/`, `.codex/skills/`, `.agents/skills/`)
+- `npx github:Plusplus106/my-kanban install --targets claude,gemini`: Install only for selected AI tools (`claude`, `gpt`, `gemini`, `all`)
+- `npx github:Plusplus106/my-kanban install --skill kanban-skill-selector`: Install specific skill(s) only
+- `npx github:Plusplus106/my-kanban list`: List all available skills
+- `npx github:Plusplus106/my-kanban uninstall`: Remove installed skills
+
 ### Project Initialization and Flexible Usage
 
-1. Standard flow (created by script):
+1. Standard flow (created by CLI or script):
 
-- Run `npm run init <project-name>` to create a full project folder structure quickly.
+- Run `npx github:Plusplus106/my-kanban init <project-name>`, `npm run init <project-name>`, or `yarn init <project-name>` to create a full project folder structure quickly.
 - Full flow:
   `1-Specs/` -> `2-Plans/` -> `3-Progressing/` -> `4-Testing/` -> `7-Done/` -> `8-Archived/`
 
@@ -194,7 +246,7 @@ Key capabilities:
 
 - Once a task enters `4-Testing/`, moving files only is not allowed.
 - Test code must be created or completed.
-- Full testing scope must be executed and pass all green.
+- Targeted testing scope for the changed files must be executed and pass all green (full test suite requires prior user confirmation).
 - Test commands and full output must be recorded in task files.
 - If not passed, do not move to `7-Done/` or `8-Archived/`.
 - If `0-PLAN_OVERVIEW` exists in the same batch, update it every time a plan moves stages.
@@ -208,6 +260,8 @@ my-kanban/
 ├── KANBAN_INSTRUCTION.md
 ├── KANBAN_USAGE_GUIDE.md
 ├── package.json
+├── bin/
+│   └── my-kanban.js        # Unified CLI skill installer for Claude / GPT / Gemini
 ├── <locale-content-root>/   # e.g. zh-TW/, ja-JP/, en-US/
 │   ├── scripts/
 │   ├── templates/
@@ -239,8 +293,8 @@ my-kanban/
 - **-> `COMMON_CONVENTIONS.md` (under current locale content root `templates/`)**
 - **-> `SKILL_INTEGRATION.md` (under current locale content root `templates/`)**
 
-**Version:** 5.2 (Testing Quality Gate Aligned)
-**Last Updated:** 2026-02-20
+**Version:** 5.3 (Multi-AI Terminal CLI Installer)
+**Last Updated:** 2026-11-02
 
 ---
 
@@ -270,8 +324,9 @@ my-kanban/
 ## システム概要
 
 このシステムは、複数の AI ツールで協調開発するためのタスク管理基盤です。
-作業を次の 2 層に分離します。
+作業を次の階層に分離します。
 
+- **0-Epics**: 複数の Spec を束ねて前提依存を宣言する参照型テーマインデックス（任意。詳細は `templates/0-Epics/EPICS_RULES.md`）
 - **1-Specs**: 要件と設計（What & Why）
 - **2-Plans**: 実装タスクと実行手順（How & When）
 
@@ -282,11 +337,35 @@ my-kanban/
 - AI セッション間のスムーズな引き継ぎ
 - テンプレートと規約の集中管理
 
+### ターミナルからのワンコマンド Skill インストール（Claude / GPT / Gemini 共通）
+
+単一のターミナルコマンドで、すべての Kanban Skills（`templates/` 規約・テンプレート同梱）を **Claude (Claude Code)**、**GPT (OpenAI Codex)**、**Gemini (Antigravity / Gemini CLI)** へ一括インストールできます:
+
+```bash
+# 方法 1: npx で GitHub から直接ワンコマンドインストール（Claude・GPT・Gemini のグローバルディレクトリへ同時導入）
+npx github:Plusplus106/my-kanban install
+
+# 方法 2: グローバルインストール後に実行（npm / yarn 両対応）
+npm install -g my-kanban && my-kanban install
+yarn global add my-kanban && my-kanban install
+
+# 方法 3: オープンソースの汎用 skills CLI を利用
+npx skills add Plusplus106/my-kanban -g -a claude-code -a codex -a antigravity -a gemini-cli
+```
+
+主な CLI オプション:
+
+- `npx github:Plusplus106/my-kanban install --project`: 現在のプロジェクトワークスペース（`.claude/skills/`、`.codex/skills/`、`.agents/skills/`）へインストール
+- `npx github:Plusplus106/my-kanban install --targets claude,gemini`: 指定した AI ツールのみにインストール（`claude`, `gpt`, `gemini`, `all`）
+- `npx github:Plusplus106/my-kanban install --skill kanban-skill-selector`: 指定した skill のみインストール
+- `npx github:Plusplus106/my-kanban list`: 利用可能な全 skills を一覧表示
+- `npx github:Plusplus106/my-kanban uninstall`: インストール済み skills を一括削除
+
 ### プロジェクト初期化と柔軟運用
 
-1. 標準フロー（スクリプト生成）:
+1. 標準フロー（CLI またはスクリプト生成）:
 
-- `npm run init <project-name>` で完全なプロジェクトフォルダ構成を素早く生成。
+- `npx github:Plusplus106/my-kanban init <project-name>`、`npm run init <project-name>`、または `yarn init <project-name>` で完全なプロジェクトフォルダ構成を素早く生成。
 - 完整フロー:
   `1-Specs/` -> `2-Plans/` -> `3-Progressing/` -> `4-Testing/` -> `7-Done/` -> `8-Archived/`
 
@@ -306,7 +385,7 @@ my-kanban/
 
 - `4-Testing/` 入り後は、ファイル移動のみは禁止。
 - テストコードを新規作成または補完する。
-- 全範囲のテストを実行し、all green を確認する。
+- 今回の変更に関連する targeted テスト範囲を実行し、all green を確認する（全範囲テストが必要な場合は事前にユーザー同意が必要）。
 - テストコマンドと完全出力をタスク文書に記録する。
 - 未通過時は `7-Done/` / `8-Archived/` へ進めない。
 - 同一バッチに `0-PLAN_OVERVIEW` がある場合、plan 移動のたびに同期更新する。
@@ -320,6 +399,8 @@ my-kanban/
 ├── KANBAN_INSTRUCTION.md
 ├── KANBAN_USAGE_GUIDE.md
 ├── package.json
+├── bin/
+│   └── my-kanban.js        # Claude / GPT / Gemini 共通 CLI インストーラー
 ├── <locale-content-root>/   # 例: zh-TW/, ja-JP/, en-US/
 │   ├── scripts/
 │   ├── templates/
@@ -351,5 +432,5 @@ my-kanban/
 - **-> `COMMON_CONVENTIONS.md`（現在の言語コンテンツルート `templates/` 配下）**
 - **-> `SKILL_INTEGRATION.md`（現在の言語コンテンツルート `templates/` 配下）**
 
-**Version:** 5.2 (Testing Quality Gate Aligned)
-**Last Updated:** 2026-02-20
+**Version:** 5.3 (Multi-AI Terminal CLI Installer)
+**Last Updated:** 2026-11-02
